@@ -6,24 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".Login">
 
-    <EditText
-        android:id="@+id/nombreUsuariotxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="144dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/nombreUsuario"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/buttonIngresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="148dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="72dp"
         android:onClick="ingresar"
         android:text="@string/ingresar"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,19 +22,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
+        android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreUsuariotxt" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTxt" />
 
     <Button
         android:id="@+id/botonRegistarLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="268dp"
+        android:layout_marginTop="36dp"
         android:onClick="registrarLogin"
         android:text="@string/registrar"
-        tools:layout_editor_absoluteX="25dp"
-        tools:layout_editor_absoluteY="557dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonIngresar" />
+
+    <EditText
+        android:id="@+id/emailTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="184dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

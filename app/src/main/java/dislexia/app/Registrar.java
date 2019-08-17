@@ -5,6 +5,7 @@ import dislexia.app.Modelo.*;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,6 +15,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -21,13 +23,14 @@ import java.util.UUID;
 
 public class Registrar extends AppCompatActivity {
 
-    private EditText nombreTxt,apellidoTxt,dniTxt,edadTxt,usuarioTxt,password,especialidadTxt,matriculaTxt;
+    private EditText nombreTxt,apellidoTxt,dniTxt,edadTxt,emailTxt,password,especialidadTxt,matriculaTxt;
     private RadioButton masculinoRb,femeninoRb;
     private CheckBox especialistaCb;
     private Button botonRegistrar;
     private View viewEspecialista;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
+    FirebaseAuth mAuth;
 
 
 
@@ -41,7 +44,7 @@ public class Registrar extends AppCompatActivity {
         apellidoTxt = (EditText) findViewById(R.id.apellidoTxt);
         dniTxt = (EditText) findViewById(R.id.dniTxt);
         edadTxt= (EditText) findViewById(R.id.edadTxt);
-        usuarioTxt = (EditText) findViewById(R.id.usuarioTxt);
+        emailTxt = (EditText) findViewById(R.id.emailTxt);
         password = (EditText) findViewById(R.id.pass);
         especialidadTxt = (EditText) findViewById(R.id.especialidadTxt);
         matriculaTxt = (EditText) findViewById(R.id.matriculaTxt);
@@ -66,7 +69,7 @@ public class Registrar extends AppCompatActivity {
             }
         });
         botonRegistrar = (Button) findViewById(R.id.botonRegistrar);
-
+        femeninoRb.setChecked(true);
 
 
 
@@ -78,6 +81,8 @@ public class Registrar extends AppCompatActivity {
         FirebaseApp.initializeApp(this);
         firebaseDatabase= FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference();
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
     }
 
 
@@ -88,19 +93,22 @@ public class Registrar extends AppCompatActivity {
         Usuario usuario = new Usuario();
 
         String idPersona = UUID.randomUUID().toString();
-        String user = usuarioTxt.getText().toString();
+        String email = emailTxt.getText().toString();
         String pass = password.getText().toString();
         String nombre = nombreTxt.getText().toString();
         String apellido = apellidoTxt.getText().toString();
         String dni = dniTxt.getText().toString();
-        int edad = Integer.parseInt(edadTxt.getText().toString());
+        String edad = edadTxt.getText().toString();
 
         boolean especialista_nino;
         String especialidad;
         String matricula;
         boolean sexo=false;
+
         if(masculinoRb.isChecked()){
             sexo=true;
+        }else if(femeninoRb.isChecked()){
+            sexo=false;
         }
 
         if(viewEspecialista.getVisibility() == View.VISIBLE){
@@ -108,6 +116,14 @@ public class Registrar extends AppCompatActivity {
             especialista_nino=true; // es especialista
             matricula = matriculaTxt.getText().toString();
             especialidad = especialidadTxt.getText().toString();
+            if(TextUtils.isEmpty(matricula)){
+                matriculaTxt.setError("");
+                Toast.makeText(this,"Ingrese matricula",Toast.LENGTH_LONG).show();
+            }
+            else if(TextUtils.isEmpty(especialidad)) {
+                especialidadTxt.setError("");
+                Toast.makeText(this, "Ingrese Especialidad", Toast.LENGTH_SHORT).show();
+            }
 
         }
         else{
@@ -115,12 +131,50 @@ public class Registrar extends AppCompatActivity {
             matricula= null;
             especialidad= null;
         }
-        boolean respuesta = usuario.registrarUsuario(user,pass,idPersona,databaseReference, this);
-        Toast.makeText(this,"paso",Toast.LENGTH_LONG);
-        if( respuesta=true) {
-            persona.registrarPersona(idPersona, nombre, apellido, dni, edad, sexo, especialista_nino, especialidad, matricula, databaseReference);
+         if(TextUtils.isEmpty(nombre)) {
+            nombreTxt.setError("");
+            Toast.makeText(this, "Ingrese nombre", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(apellido)) {
+            apellidoTxt.setError("");
+            Toast.makeText(this, "Ingrese apellido", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(edad)) {
+            edadTxt.setError("");
+            Toast.makeText(this, "Ingrese edad", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(dni)) {
+            dniTxt.setError("");
+            Toast.makeText(this, "Ingrese Dni", Toast.LENGTH_SHORT).show();
+        }
+        else if(TextUtils.isEmpty(email)){
+            emailTxt.setError("");
+            Toast.makeText(this,"Ingrese email ",Toast.LENGTH_LONG).show();
+
+        }
+        else if(TextUtils.isEmpty(pass)) {
+            password.setError("");
+            Toast.makeText(this, "Ingrese contrasena", Toast.LENGTH_SHORT).show();
         }
 
+
+        else if(TextUtils.isEmpty(pass)) {
+            password.setError("");
+            Toast.makeText(this, "Ingrese contrasena", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            persona.setNombre(nombre);
+            persona.setApellido(apellido);
+            persona.setIdPersona(idPersona);
+            persona.setDni(dni);
+            persona.setSexo(sexo);
+            persona.setMatricula(matricula);
+            persona.setEspecialista_nino(especialista_nino);
+            persona.setEspecialidad(especialidad);
+            persona.setEdad(edad);
+            usuario.registrarUsuario(email, pass, persona, mAuth, databaseReference, this);
+
+        }
 
 
 

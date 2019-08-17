@@ -10,7 +10,7 @@ public class Persona {
     String nombre;
     String apellido;
     String dni;
-    int edad;
+    String edad;
     boolean sexo;
     boolean especialista_nino;
     String especialidad;
@@ -49,11 +49,11 @@ public class Persona {
         this.dni = dni;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -90,7 +90,7 @@ public class Persona {
     }
 
 
-    public void registrarPersona(String idPersona, String nombre, String apellido, String dni, int edad, boolean sexo, boolean especialista_nino, String especialidad, String matricula, DatabaseReference databaseReference){
+    public void registrarPersona(String idPersona, String nombre, String apellido, String dni, String edad, boolean sexo, boolean especialista_nino, String especialidad, String matricula, DatabaseReference databaseReference){
 
         Persona persona = new Persona();
         persona.setIdPersona(idPersona);

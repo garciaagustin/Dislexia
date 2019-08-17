@@ -45,7 +45,7 @@
         android:id="@+id/edadTxt"
         android:layout_width="77dp"
         android:layout_height="49dp"
-        android:layout_marginStart="52dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/edad"
@@ -98,33 +98,22 @@
         app:layout_constraintTop_toBottomOf="@+id/pass" />
 
     <EditText
-        android:id="@+id/usuarioTxt"
+        android:id="@+id/pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="@string/nombreUsuario"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
-
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usuarioTxt" />
+        app:layout_constraintTop_toBottomOf="@+id/emailTxt" />
 
     <Button
         android:id="@+id/botonRegistrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="288dp"
+        android:layout_marginStart="272dp"
         android:onClick="registrarBoton"
         android:text="@string/registrar"
         app:layout_constraintStart_toStartOf="parent"
@@ -183,5 +172,17 @@
             android:text="@string/masculino" />
 
     </RadioGroup>
+
+    <EditText
+        android:id="@+id/emailTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

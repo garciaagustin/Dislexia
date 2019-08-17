@@ -15,4 +15,5 @@
     <string name="especialista">Especialista?</string>
     <string name="especialidad">Especialidad</string>
     <string name="matricula">Matricula</string>
+    <string name="email">Email</string>
 </resources>

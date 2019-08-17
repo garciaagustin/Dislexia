@@ -1,12 +1,19 @@
 package dislexia.app.Modelo;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,20 +21,24 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.UUID;
+import java.util.concurrent.Executor;
+
+import dislexia.app.Login;
+import dislexia.app.Registrar;
 
 public class Usuario {
 
-    String userId;
-    String user;
-    String password;
     String idPersona;
+    String password;
+    String email;
+    String userId;
 
-    public String getUserId() {
-        return userId;
+    public String getIdPersona() {
+        return idPersona;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setIdPersona(String idPersona) {
+        this.idPersona = idPersona;
     }
 
     public String getPassword() {
@@ -38,79 +49,77 @@ public class Usuario {
         this.password = password;
     }
 
-    public String getIdPersona() {
-        return idPersona;
+    public String getEmail() {
+        return email;
     }
 
-    public void setIdPersona(String idPersona) {
-        this.idPersona = idPersona;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getUser() {
-        return user;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
 
+    public void registrarUsuario(final String email, final String password, final Persona persona, FirebaseAuth mAuth, final DatabaseReference database, final Context context) {
 
-    public boolean userExiste(final String user, final Context context, DatabaseReference databaseReference){
 
-        final boolean[] resultado = new boolean[1];
+        //Chequea si son correctos email y contrasena ingresados
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener((Activity) context, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Usuario usuario = new Usuario();
+                            usuario.setUserId(UUID.randomUUID().toString());
+                            usuario.setEmail(email);
+                            usuario.setIdPersona(persona.getIdPersona());
+                            usuario.setPassword(password);
+                            database.child("usuario").child(usuario.getUserId()).setValue(usuario);
+                            database.child("Persona").child(persona.getIdPersona()).setValue(persona);
+                            // Sign in success, update UI with the signed-in user's information
+                            Toast.makeText(context, "El usuario ha sido registrado correctamente", Toast.LENGTH_SHORT).show();
 
-        databaseReference.child("usuario").addValueEventListener(new ValueEventListener() {
-            @Override
 
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
-                    Usuario usuario = dataSnapshot.getValue(Usuario.class);
+                        } else {
+                            // Guarda el error obtenido para despues chequearlo
+                            String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
+                            Log.e("", "" + errorCode);
+                            switch (errorCode) {
 
-                    if(usuario.getUser() == user){
-                        resultado[0] =true;
+                                case "ERROR_EMAIL_ALREADY_IN_USE": // El usuario ingreso contrasena incorrecta
 
+                                    Toast.makeText(context, "Ya existe un usuario registrado con ese email", Toast.LENGTH_LONG).show();
+                                    break;
+
+
+                                case "ERROR_INVALID_EMAIL":
+                                    Toast.makeText(context, "No es un email valido", Toast.LENGTH_LONG).show();
+                                    break;
+
+                            }
+                        }
 
                     }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        Toast.makeText(context, ""+resultado[0], Toast.LENGTH_SHORT).show();
-        return resultado[0];
+                });
     }
-
-
-    public boolean registrarUsuario(String user, String password, String idPersona, DatabaseReference databaseReference, Context context){
-          boolean resultado =false;
-          Usuario usuario = new Usuario();
-          usuario.setUserId(UUID.randomUUID().toString());
-          usuario.setUser(user);
-          usuario.setIdPersona(idPersona);
-          usuario.setPassword(password);
-
-          boolean existe =usuario.userExiste(user,context, databaseReference);
-
-          if( existe=false){
-
-              databaseReference.child("usuario").child(usuario.getUserId()).setValue(usuario);
-              resultado=true; // lo guardo
-          }
-          else{
-
-              Toast.makeText(context,"Ya existe el usuario",Toast.LENGTH_LONG).show();
-              resultado=false;
-          }
-        return resultado;
-    }
-
-
-
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
 
