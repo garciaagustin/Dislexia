@@ -1,16 +1,51 @@
 package dislexia.app.Modelo;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
+
+
+import dislexia.app.ActividadesPantalla;
+import dislexia.app.Registrar;
 
 public class Actividad {
 
     String nombreActividad;
 
-    LinkedList<Nivel> niveles= new LinkedList<Nivel>();
+    ArrayList<Nivel> niveles= new ArrayList<Nivel>();
 
-    View ventanaActividad;
+
+
+
+
+
+    public Actividad(final Context context,LinearLayout linearLayout, String nombreActividad, LinearLayout.LayoutParams lp, final Class activity){
+
+        this.nombreActividad = nombreActividad;
+
+        ArrayList<Nivel> niveles = new ArrayList<Nivel>();
+        this.niveles=niveles;
+
+
+        Button button = new Button(context);
+        button.setLayoutParams(lp);
+        button.setText(nombreActividad);
+        linearLayout.addView(button);
+        //Agrego listener al boton para redireccionarlo a la actividad correspondiente
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view1) {
+                Intent intent = new Intent(context,activity);
+                intent.putExtra("ListaNiveles",getNiveles());
+                view1.getContext().startActivity(intent);
+            }
+        });
+    }
 
 
     public String getNombreActividad() {
@@ -21,23 +56,17 @@ public class Actividad {
         this.nombreActividad = nombreActividad;
     }
 
-    public LinkedList<Nivel> getNiveles() {
+    public ArrayList<Nivel> getNiveles() {
         return niveles;
     }
 
-    public void agregarNiveles(LinkedList<Nivel> niveles, Nivel nivel) {
+    public void agregarNivel( Nivel nivel) {
 
         niveles.add(nivel);
 
     }
 
-    public View getVentanaActividad() {
-        return ventanaActividad;
-    }
 
-    public void setVentanaActividad(View ventanaActividad) {
-        this.ventanaActividad = ventanaActividad;
-    }
 
 
 

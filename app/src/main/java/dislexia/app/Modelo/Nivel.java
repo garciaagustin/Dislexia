@@ -1,12 +1,25 @@
 package dislexia.app.Modelo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
-public class Nivel {
+import java.io.Serializable;
+
+public class Nivel implements Serializable {
 
     String numero;
-    View ventanaNivel;
+    Class ventanaNivel;
 
+
+
+    public Nivel(String numero,Class ventanaNivel){
+        this.numero=numero;
+        this.ventanaNivel=ventanaNivel;
+
+    }
     public String getNumero() {
         return numero;
     }
@@ -15,11 +28,11 @@ public class Nivel {
         this.numero = numero;
     }
 
-    public View getVentanaNivel() {
+    public Class getVentanaNivel() {
         return ventanaNivel;
     }
 
-    public void setVentanaNivel(View ventanaNivel) {
+    public void setVentanaNivel(Class ventanaNivel) {
         this.ventanaNivel = ventanaNivel;
     }
 
