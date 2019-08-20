@@ -111,6 +111,9 @@ public class Login extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                                //Inicia ventana Actividades
+                                Intent i = new Intent(Login.this,ActividadesPantalla.class);
+                                startActivity(i);
 
 
                             } else {
