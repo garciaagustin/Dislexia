@@ -2,6 +2,7 @@ package dislexia.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ import dislexia.app.Modelo.Nivel;
 
 public class Niveles extends AppCompatActivity {
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,8 @@ public class Niveles extends AppCompatActivity {
             Button button = new Button(this);
             button.setLayoutParams(lp);
             button.setText(numero);
+            button.setBackground(this.getResources().getDrawable(R.drawable.fondo_boton_redondeado)); // Cambiar fondo boton x archivo creado
+            button.setTextColor(this.getResources().getColorStateList(R.drawable.txt_boton_redondeado)); //Cambia el color de texto del boton
             botonera.addView(button);
             //Agrego listener al boton para redireccionarlo a la actividad correspondiente
             button.setOnClickListener(new View.OnClickListener() {

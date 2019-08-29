@@ -1,5 +1,6 @@
 package dislexia.app.Modelo;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 
 
 import dislexia.app.ActividadesPantalla;
+import dislexia.app.R;
 import dislexia.app.Registrar;
 
 public class Actividad {
@@ -24,7 +26,8 @@ public class Actividad {
 
 
 
-    public Actividad(final Context context,LinearLayout linearLayout, String nombreActividad, LinearLayout.LayoutParams lp, final Class activity){
+    @SuppressLint("ResourceType")
+    public Actividad(final Context context, LinearLayout linearLayout, String nombreActividad, LinearLayout.LayoutParams lp, final Class activity){
 
         this.nombreActividad = nombreActividad;
 
@@ -35,6 +38,8 @@ public class Actividad {
         Button button = new Button(context);
         button.setLayoutParams(lp);
         button.setText(nombreActividad);
+        button.setBackground(context.getResources().getDrawable(R.drawable.fondo_boton_redondeado)); // Cambiar fondo boton x archivo creado
+        button.setTextColor(context.getResources().getColorStateList(R.drawable.txt_boton_redondeado)); //Cambia el color de texto del boton
         linearLayout.addView(button);
         //Agrego listener al boton para redireccionarlo a la actividad correspondiente
         button.setOnClickListener(new View.OnClickListener() {

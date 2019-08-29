@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login">
 
-    <Button
-        android:id="@+id/buttonIngresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="72dp"
-        android:onClick="ingresar"
-        android:text="@string/ingresar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
-
     <EditText
         android:id="@+id/pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="28dp"
+        android:layout_below="@+id/emailTxt"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailTxt" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/botonRegistarLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="284dp"
+        android:layout_marginTop="40dp"
         android:onClick="registrarLogin"
+        android:textColor="@drawable/txt_boton_redondeado"
+        android:background="@drawable/fondo_boton_redondeado"
         android:text="@string/registrar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonIngresar" />
+        android:layout_below="@+id/buttonIngresar"
+         />
 
     <EditText
         android:id="@+id/emailTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="184dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="80dp"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:inputType="textEmailAddress" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/buttonIngresar"
+        android:layout_width="167dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="116dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/fondo_boton_redondeado"
+        android:ellipsize="none"
+        android:onClick="ingresar"
+        android:text="@string/ingresar"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@drawable/txt_boton_redondeado"
+        android:textSize="20sp"
+        android:layout_below="@+id/pass"/>
+
+</RelativeLayout>

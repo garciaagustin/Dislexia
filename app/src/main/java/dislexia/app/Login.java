@@ -93,7 +93,7 @@ public class Login extends AppCompatActivity {
         String email = emailtxt.getText().toString();
 
         if(TextUtils.isEmpty(email)){
-            emailtxt.setError("");
+            emailtxt.setError("Campo obligatorio.");
             Toast.makeText(Login.this,"Ingrese email ",Toast.LENGTH_LONG).show();
 
         }
