@@ -26,9 +26,16 @@ import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.SignInMethodQueryResult;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.LinkedList;
+import java.util.List;
+
+import dislexia.app.Modelo.Persona;
 import dislexia.app.Modelo.Usuario;
 
 public class Login extends AppCompatActivity {
@@ -42,6 +49,10 @@ public class Login extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
 
+
+
+    LinkedList<Boolean> listaEspecialista = new LinkedList<Boolean>();
+    LinkedList<String> resultado = new LinkedList<>();
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -64,6 +75,7 @@ public class Login extends AppCompatActivity {
 
 
         inicializarFirebase();
+
 
     }
 
@@ -89,8 +101,10 @@ public class Login extends AppCompatActivity {
     public void ingresar(View v) {
 
 
+       resultado.clear();
+       listaEspecialista.clear();
         String pass = password.getText().toString();
-        String email = emailtxt.getText().toString();
+        final String email = emailtxt.getText().toString();
 
         if(TextUtils.isEmpty(email)){
             emailtxt.setError("Campo obligatorio.");
@@ -109,12 +123,43 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                // Sign in success, update UI with the signed-in user's information
-                                Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
-                                //Inicia ventana Actividades
-                                Intent i = new Intent(Login.this,ActividadesPantalla.class);
-                                startActivity(i);
 
+                                Usuario u = new Usuario();
+                                //Obtiene idPersona guarda en resultado
+
+                                            u.readData(new Usuario.FirebaseCallBackidPersona() {
+                                                @Override
+                                                public void onCallback(LinkedList<String> resultado) {
+
+                                                    final String idPersonaRecuperada = resultado.get(0);
+
+                                                    Persona p = new Persona();
+
+                                                    p.readData(new Persona.FirebaseCallBackEspecialista() {
+                                                        @Override
+                                                        public void onCallback(LinkedList<Boolean> listaEspecialista) {
+
+
+                                                            if(listaEspecialista.getFirst()== true){
+                                                                //Iniciar actividad Especialista
+                                                                Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                                                                Intent i = new Intent(Login.this,ActividadEspecialista.class);
+                                                                startActivity(i);
+
+                                                            }else{
+                                                                Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                                                                Intent i = new Intent(Login.this,ActividadesPantalla.class);
+                                                                i.putExtra("idPersona",idPersonaRecuperada);
+                                                                startActivity(i);
+                                                            }
+
+                                                        }
+                                                    }, idPersonaRecuperada, databaseReference, listaEspecialista);
+
+
+
+                                                }
+                                            }, email, databaseReference, resultado);
 
                             } else {
                                 // Guarda el error obtenido para despues chequearlo
@@ -139,10 +184,6 @@ public class Login extends AppCompatActivity {
                                 }
 
 
-
-
-
-
                             }
 
                             // ...
@@ -158,8 +199,6 @@ public class Login extends AppCompatActivity {
         }
 
 
-
-
         }
 
 
@@ -170,6 +209,17 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

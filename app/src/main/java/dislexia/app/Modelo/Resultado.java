@@ -1,13 +1,27 @@
 package dislexia.app.Modelo;
 
+import com.google.firebase.database.DatabaseReference;
+
+import java.util.Date;
+import java.util.UUID;
+
 public class Resultado {
 
     String idResultado;
     String nombreActividad;
     String nivel;
-    String cantidadFallas;
+    int cantidadFallas;
     String tiempo;
     String idPersona;
+    String fecha;
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 
     public String getIdResultado() {
         return idResultado;
@@ -33,11 +47,11 @@ public class Resultado {
         this.nivel = nivel;
     }
 
-    public String getCantidadFallas() {
+    public int getCantidadFallas() {
         return cantidadFallas;
     }
 
-    public void setCantidadFallas(String cantidadFallas) {
+    public void setCantidadFallas(int cantidadFallas) {
         this.cantidadFallas = cantidadFallas;
     }
 
@@ -56,4 +70,28 @@ public class Resultado {
     public void setIdPersona(String idPersona) {
         this.idPersona = idPersona;
     }
+
+
+    public void registrarResultado(String nombreActividad, String nivel, int cantidadFallas, String tiempo, String idPersona, String fecha, DatabaseReference databaseReference){
+
+        Resultado resultado = new Resultado();
+        resultado.setIdPersona(idPersona);
+        resultado.setCantidadFallas(cantidadFallas);
+        resultado.setFecha(fecha);
+        String idResultado=UUID.randomUUID().toString();
+        resultado.setIdResultado(idResultado);
+        resultado.setNivel(nivel);
+        resultado.setTiempo(tiempo);
+        resultado.setNombreActividad(nombreActividad);
+
+        databaseReference.child("Resultado").child(idResultado).setValue(resultado);
+
+
+
+
+
+    }
+
+
+
 }

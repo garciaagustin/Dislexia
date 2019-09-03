@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.LinkedList;
 import java.util.UUID;
 import java.util.concurrent.Executor;
 
@@ -110,7 +111,41 @@ public class Usuario {
     }
 
 
+
+    public void readData(final FirebaseCallBackidPersona firebaseCallBack, final String email, DatabaseReference databaseReference, final LinkedList<String> resultado){
+
+        databaseReference.child("usuario").orderByChild("email").equalTo(email).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+
+                    String idPersona = dataSnapshot1.child("idPersona").getValue().toString();
+
+
+                    resultado.add(idPersona);
+
+                }
+
+
+
+                firebaseCallBack.onCallback(resultado);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    public interface FirebaseCallBackidPersona{
+
+        void onCallback(LinkedList<String> resultado);
+
+
+    }
+
 }
+
 
 
 

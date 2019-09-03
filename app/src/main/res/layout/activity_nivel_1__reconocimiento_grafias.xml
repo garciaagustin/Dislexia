@@ -6,4 +6,305 @@
     android:layout_height="match_parent"
     tools:context=".Nivel_1_ReconocimientoGrafias">
 
+
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="8dp"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <ImageView
+        android:id="@+id/letraBCompleta1"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="152dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/letraPView2"
+        app:layout_constraintTop_toBottomOf="@+id/letraQView1"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/letrabcompleta" />
+
+    <ImageView
+        android:id="@+id/letraPCompleta2"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/letraQView2"
+        app:layout_constraintTop_toBottomOf="@+id/letraDView"
+        app:srcCompat="@drawable/letrapcompleta" />
+
+    <ImageView
+        android:id="@+id/letraQCompleta2"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/letraPView1"
+        app:srcCompat="@drawable/letraqcompleta"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageView
+        android:id="@+id/letraQCompleta1"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="188dp"
+        app:layout_constraintStart_toEndOf="@+id/letraDView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/letraqcompleta" />
+
+    <ImageView
+        android:id="@+id/letraDCompleta1"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/letraQView1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/letradcompleta" />
+
+    <ImageView
+        android:id="@+id/letrapCompleta1"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="188dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/letrapcompleta"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/botonIniciar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="536dp"
+        android:text="@string/iniciar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/letraPView1"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="188dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/letrapvacia1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/letrapvacia" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/letraQView2"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/letraPView1">
+
+        <ImageView
+            android:id="@+id/letraQVacia2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/letraqvacia" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/letraBView"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/letraPView2"
+        app:layout_constraintTop_toBottomOf="@+id/letraQView1">
+
+        <ImageView
+            android:id="@+id/letraBVacia1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/letrabvacia" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/letraPView2"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/letraQView2"
+        app:layout_constraintTop_toBottomOf="@+id/letraDView">
+
+        <ImageView
+            android:id="@+id/letraPVacia2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/letrapvacia" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/letraQView1"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/letraDView"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/letraQVacia1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/letraqvacia" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/letraDView"
+        android:layout_width="122dp"
+        android:layout_height="127dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="188dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toEndOf="@+id/letraPView1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/letraDVacia1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/letradvacia" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+
+
+        android:layout_width="403dp"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
+
+
+        <TextView
+            android:id="@+id/letrap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_marginStart="25dp"
+            android:layout_toEndOf="@+id/imageView2"
+            android:elevation="30dp"
+            android:text="@string/P"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/letraD"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignBottom="@+id/imageView4"
+            android:layout_marginStart="17dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@+id/imageView"
+            android:elevation="7dp"
+            android:text="@string/D"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/letraQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_alignStart="@+id/imageView2"
+            android:layout_marginStart="42dp"
+            android:elevation="7dp"
+            android:text="@string/Q"
+            android:textSize="36sp" />
+
+        <TextView
+            android:id="@+id/letrab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+
+            android:layout_alignEnd="@+id/imageView3"
+            android:layout_alignBottom="@+id/imageView3"
+            android:layout_marginEnd="52dp"
+            android:layout_marginBottom="11dp"
+            android:elevation="7dp"
+            android:text="@string/B"
+            android:textSize="36sp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="122dp"
+            android:layout_height="117dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-29dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="3dp"
+            android:layout_toEndOf="@+id/imageView4"
+            app:srcCompat="@drawable/letrabvacia" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="127dp"
+            android:layout_height="117dp"
+            android:layout_marginStart="-36dp"
+            android:layout_marginBottom="1dp"
+            android:layout_toEndOf="@+id/imageView"
+            app:srcCompat="@drawable/letradvacia" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="122dp"
+            android:layout_height="117dp"
+            android:layout_marginStart="-25dp"
+            android:layout_marginBottom="5dp"
+            android:layout_toEndOf="@+id/imageView2"
+            android:clickable="false"
+            android:textAlignment="center"
+            app:srcCompat="@drawable/letrapvacia" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:srcCompat="@drawable/letraqvacia" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="399dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="140dp"
+        android:text="@string/arrastre"
+        android:textSize="17sp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="6dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
