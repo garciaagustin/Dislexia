@@ -16,4 +16,15 @@
     <string name="especialidad">Especialidad</string>
     <string name="matricula">Matricula</string>
     <string name="email">Email</string>
+    <string name="niveles">Niveles</string>
+    <string name="P">p</string>
+    <string name="D">d</string>
+    <string name="Q">q</string>
+    <string name="B">b</string>
+    <string name="buscadorEspecialistaNombre">Ingrese nombre de nino </string>
+    <string name="buscadorEspecialistaApellido">Ingrese Apellido de nino </string>
+    <string name= "buscar">Buscar</string>
+    <string name="resultado">Resultado</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="arrastre">Arrastre la letra a la figura que corresponde</string>
 </resources>

@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Nivel_2_ReconocimientoGrafias"></activity>
+        <activity android:name=".ActividadEspecialista"></activity>
+        <activity android:name=".Nivel_2_ReconocimientoGrafias" />
         <activity android:name=".Nivel_1_ReconocimientoGrafias" />
         <activity android:name=".Niveles" />
         <activity android:name=".ActividadesPantalla" />
