@@ -13,10 +13,13 @@
         android:layout_marginTop="32dp"
         android:orientation="vertical"
 <<<<<<< HEAD
+<<<<<<< HEAD
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp"></LinearLayout>
 </RelativeLayout>
 =======
+=======
+>>>>>>> #_finaldrag
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         tools:layout_editor_absoluteX="5dp"></LinearLayout>
 
@@ -31,5 +34,9 @@
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<<<<<<< HEAD
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> #_finaldrag
+=======
 </androidx.constraintlayout.widget.ConstraintLayout>
 >>>>>>> #_finaldrag
