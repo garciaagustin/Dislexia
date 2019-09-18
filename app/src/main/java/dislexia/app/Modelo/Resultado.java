@@ -1,11 +1,20 @@
 package dislexia.app.Modelo;
 
-import com.google.firebase.database.DatabaseReference;
+import android.util.Log;
 
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.UUID;
 
-public class Resultado {
+public class Resultado implements java.io.Serializable {
 
     String idResultado;
     String nombreActividad;
@@ -91,6 +100,52 @@ public class Resultado {
 
 
     }
+
+
+    public void readData(final FirebaseCallBackResultado firebaseCallBack, final String idPersona, final String nombreActividad, final String nivel, DatabaseReference databaseReference, final ArrayList<Resultado> listaResultado){
+
+        databaseReference.child("Resultado").orderByChild("idPersona").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()){
+                    Resultado r = new Resultado();
+
+                    r = dataSnapshot1.getValue(Resultado.class);
+                    String idPersonaRecuperada = dataSnapshot1.child("idPersona").getValue().toString();
+                    String nombreActividadRecuperado =dataSnapshot1.child("nombreActividad").getValue().toString();
+                    String nivelRecuperado = dataSnapshot1.child("nivel").getValue().toString();
+                    Log.e("", "recuperada"+idPersonaRecuperada);
+
+                    Log.e("","idpersona ="+ idPersona + "recuperada = "+idPersonaRecuperada);
+                    if( idPersonaRecuperada.equals(idPersona) && nivelRecuperado.equals(nivel) && nombreActividadRecuperado.equals(nombreActividad)){
+                        Log.e("","entro al if con " +r);
+
+                        listaResultado.add(r);
+
+                    }
+
+                }
+                firebaseCallBack.onCallback(listaResultado);
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+
+
+
+    public interface FirebaseCallBackResultado{
+
+        void onCallback(ArrayList<Resultado> listaResultado);
+    }
+
+
+
+
+
 
 
 

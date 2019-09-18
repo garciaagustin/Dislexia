@@ -26,16 +26,9 @@ public class Actividad {
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    @SuppressLint("ResourceType")
-    public Actividad(final Context context, LinearLayout linearLayout, String nombreActividad, LinearLayout.LayoutParams lp, final Class activity){
-=======
+
     public Actividad(final Context context, LinearLayout linearLayout, final String nombreActividad, LinearLayout.LayoutParams lp, final Class activity, final String idPersona){
->>>>>>> #_finaldrag
-=======
-    public Actividad(final Context context, LinearLayout linearLayout, final String nombreActividad, LinearLayout.LayoutParams lp, final Class activity, final String idPersona){
->>>>>>> #_finaldrag
+
 
         this.nombreActividad = nombreActividad;
 

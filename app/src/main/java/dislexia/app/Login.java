@@ -4,13 +4,17 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -44,6 +48,7 @@ public class Login extends AppCompatActivity {
     private Button ingresarBoton;
     private Button registrarBoton;
     private FirebaseAuth mAuth;
+    private VideoView video;
 
 
     FirebaseDatabase firebaseDatabase;
@@ -65,6 +70,19 @@ public class Login extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+        video = (VideoView) findViewById(R.id.videoLogin);
+
+        Uri uri = Uri.parse("android.resource://" + getPackageName()+ "/" + R.raw.video);
+        video.setVideoURI(uri);
+        video.start();
+
+        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.setLooping(true);
+            }
+        });
 
 
         password = (EditText) findViewById(R.id.pass);
@@ -146,11 +164,13 @@ public class Login extends AppCompatActivity {
                                                                 Intent i = new Intent(Login.this,ActividadEspecialista.class);
                                                                 startActivity(i);
 
+
                                                             }else{
                                                                 Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                                                                 Intent i = new Intent(Login.this,ActividadesPantalla.class);
                                                                 i.putExtra("idPersona",idPersonaRecuperada);
                                                                 startActivity(i);
+
                                                             }
 
                                                         }

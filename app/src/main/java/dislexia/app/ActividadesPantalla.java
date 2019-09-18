@@ -2,6 +2,7 @@ package dislexia.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
@@ -27,7 +28,7 @@ public class ActividadesPantalla extends AppCompatActivity {
         idPersona = getIntent().getStringExtra("idPersona");
         Nivel nive11 = new Nivel("1", Nivel_1_ReconocimientoGrafias.class);
         Nivel nivel2 = new Nivel("2", Nivel_2_ReconocimientoGrafias.class);
-        Actividad actividadRg = new Actividad(this,botonera, "Reconocimiento de Grafias", lp,Niveles.class,idPersona);
+        Actividad actividadRg = new Actividad(this.getContext(),botonera, "Reconocimiento de Grafias", lp,Niveles.class,idPersona);
 
         actividadRg.agregarNivel(nive11);
         actividadRg.agregarNivel(nivel2);
@@ -37,4 +38,8 @@ public class ActividadesPantalla extends AppCompatActivity {
 
     }
 
+
+    public Context getContext(){
+        return this;
+    }
 }
