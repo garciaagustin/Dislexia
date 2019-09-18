@@ -171,6 +171,7 @@ public class Login extends AppCompatActivity {
                                                                 i.putExtra("idPersona",idPersonaRecuperada);
                                                                 startActivity(i);
 
+
                                                             }
 
                                                         }
