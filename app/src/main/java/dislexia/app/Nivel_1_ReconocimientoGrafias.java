@@ -23,15 +23,18 @@ import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.TimeZone;
 
 import dislexia.app.Modelo.Nivel;
 import dislexia.app.Modelo.Resultado;
+import dislexia.app.Modelo.Usuario;
 
 public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements View.OnTouchListener, View.OnDragListener {
     private ConstraintLayout constraintLayout;
@@ -42,20 +45,24 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
     int cantidadFallas=0;
     int cantidadCompletada=0;
-    String idPersona;
+
     String nombreActividad;
     Chronometer cronometro;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     int cantidad=0;
+    LinkedList<String> personaRecuperada = new LinkedList<String>();
+    FirebaseUser user;
+    String idPersonaConectada;
+    Usuario u;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_nivel_1__reconocimiento_grafias);
-             idPersona = getIntent().getStringExtra("idPersona");
+
              nombreActividad = getIntent().getStringExtra("nombreActividad");
 
-            Log.e("",""+idPersona);
+
             // Enlazamos con xml
             botonIniciar = (Button)findViewById(R.id.botonIniciar);
             letrapvacia1 = (ImageView) findViewById(R.id.letrapvacia1);
@@ -89,6 +96,12 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
 
         inicializarFirebase();
+
+         u = new Usuario();
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+
+
 
     }
 
@@ -131,7 +144,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
     @Override
     public boolean onDrag(View v, DragEvent e) {
 
-        Resultado resultado = new Resultado(); // Crea instancia resultado
+        final Resultado resultado = new Resultado(); // Crea instancia resultado
         int action = e.getAction();
         View view = (View) e.getLocalState();
         int idView = view.getId();
@@ -158,11 +171,26 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
                               Calendar c = Calendar.getInstance();
                               SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                              String fecha = sdf.format(c.getTime());
-                              String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                              final String fecha = sdf.format(c.getTime());
+                              final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
 
                               cronometro.stop();
-                              resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
+                              if (user != null) {
+                                  String userEmail = user.getEmail();
+
+
+                                  u.readData(new Usuario.FirebaseCallBackidPersona() {
+                                      @Override
+                                      public void onCallback(LinkedList<String> personaRecuperada) {
+                                          idPersonaConectada=personaRecuperada.getFirst();
+                                          resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersonaConectada,fecha,databaseReference);
+                                      }
+                                  },userEmail,databaseReference,personaRecuperada);
+                              } else {
+                                  // No user is signed in
+                              }
+
+
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
                               Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
                               startActivity(i);
@@ -186,10 +214,25 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
                               Calendar c = Calendar.getInstance();
                               SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                              String fecha = sdf.format(c.getTime());
-                              String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                              final String fecha = sdf.format(c.getTime());
+                              final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
                               cronometro.stop();
-                              resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
+
+                              if (user != null) {
+                                  String userEmail = user.getEmail();
+
+
+                                  u.readData(new Usuario.FirebaseCallBackidPersona() {
+                                      @Override
+                                      public void onCallback(LinkedList<String> personaRecuperada) {
+                                          idPersonaConectada=personaRecuperada.getFirst();
+                                          resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersonaConectada,fecha,databaseReference);
+                                      }
+                                  },userEmail,databaseReference,personaRecuperada);
+                              } else {
+                                  // No user is signed in
+                              }
+
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
                               Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
                               startActivity(i);
@@ -218,10 +261,24 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
                               Calendar c = Calendar.getInstance();
                               SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                              String fecha = sdf.format(c.getTime());
-                              String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                              final String fecha = sdf.format(c.getTime());
+                              final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
                               cronometro.stop();
-                              resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
+                              if (user != null) {
+                                  String userEmail = user.getEmail();
+
+
+                                  u.readData(new Usuario.FirebaseCallBackidPersona() {
+                                      @Override
+                                      public void onCallback(LinkedList<String> personaRecuperada) {
+                                          idPersonaConectada=personaRecuperada.getFirst();
+                                          resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersonaConectada,fecha,databaseReference);
+                                      }
+                                  },userEmail,databaseReference,personaRecuperada);
+                              } else {
+                                  // No user is signed in
+                              }
+
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
                               Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
                               startActivity(i);
@@ -247,10 +304,24 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
                               Calendar c = Calendar.getInstance();
                               SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                              String fecha = sdf.format(c.getTime());
-                              String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                              final String fecha = sdf.format(c.getTime());
+                              final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
                               cronometro.stop();
-                              resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
+                              if (user != null) {
+                                  String userEmail = user.getEmail();
+
+
+                                  u.readData(new Usuario.FirebaseCallBackidPersona() {
+                                      @Override
+                                      public void onCallback(LinkedList<String> personaRecuperada) {
+                                          idPersonaConectada=personaRecuperada.getFirst();
+                                          resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersonaConectada,fecha,databaseReference);
+                                      }
+                                  },userEmail,databaseReference,personaRecuperada);
+                              } else {
+                                  // No user is signed in
+                              }
+
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
                               Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
                               startActivity(i);
@@ -276,10 +347,24 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
                               Calendar c = Calendar.getInstance();
                               SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                              String fecha = sdf.format(c.getTime());
-                              String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                              final String fecha = sdf.format(c.getTime());
+                              final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
                               cronometro.stop();
-                              resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
+                              if (user != null) {
+                                  String userEmail = user.getEmail();
+
+
+                                  u.readData(new Usuario.FirebaseCallBackidPersona() {
+                                      @Override
+                                      public void onCallback(LinkedList<String> personaRecuperada) {
+                                          idPersonaConectada=personaRecuperada.getFirst();
+                                          resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersonaConectada,fecha,databaseReference);
+                                      }
+                                  },userEmail,databaseReference,personaRecuperada);
+                              } else {
+                                  // No user is signed in
+                              }
+
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
                               Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
                               startActivity(i);
@@ -303,10 +388,24 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
                               Calendar c = Calendar.getInstance();
                               SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                              String fecha = sdf.format(c.getTime());
-                              String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                              final String fecha = sdf.format(c.getTime());
+                              final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
                               cronometro.stop();
-                              resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
+                              if (user != null) {
+                                  String userEmail = user.getEmail();
+
+
+                                  u.readData(new Usuario.FirebaseCallBackidPersona() {
+                                      @Override
+                                      public void onCallback(LinkedList<String> personaRecuperada) {
+                                          idPersonaConectada=personaRecuperada.getFirst();
+                                          resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersonaConectada,fecha,databaseReference);
+                                      }
+                                  },userEmail,databaseReference,personaRecuperada);
+                              } else {
+                                  // No user is signed in
+                              }
+
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
                               Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
                               startActivity(i);

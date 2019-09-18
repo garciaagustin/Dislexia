@@ -26,7 +26,7 @@ public class Niveles extends AppCompatActivity {
         LinearLayout botonera = (LinearLayout) findViewById(R.id.layaoutNiveles);
         LinearLayout.LayoutParams lp =new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT );
         final String nombreActividad = getIntent().getStringExtra("nombreActividad");
-        final String idPersona = getIntent().getStringExtra("idPersona");
+
         final ArrayList<Nivel> listaNiveles = (ArrayList<Nivel>) getIntent().getSerializableExtra("ListaNiveles");
 
         for(int i=0;i<listaNiveles.size();i++){
@@ -45,7 +45,7 @@ public class Niveles extends AppCompatActivity {
                 @Override
                 public void onClick(View view1) {
                     Intent intent = new Intent(Niveles.this, ventanaNivel);
-                    intent.putExtra("idPersona",idPersona);
+
                     intent.putExtra("nombreActividad",nombreActividad);
                     view1.getContext().startActivity(intent);
                 }

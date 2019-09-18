@@ -27,7 +27,7 @@ public class Actividad {
 
 
 
-    public Actividad(final Context context, LinearLayout linearLayout, final String nombreActividad, LinearLayout.LayoutParams lp, final Class activity, final String idPersona){
+    public Actividad(final Context context, LinearLayout linearLayout, final String nombreActividad, LinearLayout.LayoutParams lp, final Class activity){
 
 
         this.nombreActividad = nombreActividad;
@@ -47,7 +47,7 @@ public class Actividad {
             @Override
             public void onClick(View view1) {
                 Intent intent = new Intent(context,activity);
-                intent.putExtra("idPersona",idPersona);
+
                 intent.putExtra("nombreActividad",nombreActividad);
                 intent.putExtra("ListaNiveles",getNiveles());
                 view1.getContext().startActivity(intent);
