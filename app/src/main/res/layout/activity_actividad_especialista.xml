@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
     tools:context=".ActividadEspecialista">
 
     <EditText
@@ -11,10 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
-        android:hint="@string/buscadorEspecialistaNombre"
+        android:hint="@string/nombrePersona"
         android:inputType="textPersonName"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toEndOf="@+id/textView4"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,11 +24,12 @@
         android:id="@+id/apellidoniniotxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
-        android:hint="@string/buscadorEspecialistaApellido"
+        android:hint="@string/apellidoPersona"
         android:inputType="textPersonName"
+        android:textColor="@android:color/black"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/nombreNinotxt" />
 
@@ -34,9 +37,22 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="28dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="84dp"
         android:text="@string/nombrePersona"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="416dp"
+        android:text="@string/nombrePersona"
+        android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,40 +60,81 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="28dp"
         android:text="@string/apellidoPersona"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="412dp"
+        android:text="@string/dni"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonBuscar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="232dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:text="@string/buscar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.265"
+        app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apellidoniniotxt" />
 
-    <ListView
-        android:id="@+id/listaNinios"
-        android:layout_width="393dp"
-        android:layout_height="139dp"
-        android:layout_marginTop="72dp"
-        app:layout_constraintTop_toBottomOf="@+id/buttonBuscar"
-        tools:layout_editor_absoluteX="9dp" />
+    <ScrollView
+        android:layout_width="473dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/listaNinios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/title_bar"
+                android:cacheColorHint="@android:color/black" />
+        </LinearLayout>
+    </ScrollView>
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="16dp"
+        android:layout_width="115dp"
+        android:layout_height="33dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="240dp"
         android:text="@string/resultado"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="28dp"
+        android:hint="@string/buscarNino"
+        android:text="@string/buscarNino"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

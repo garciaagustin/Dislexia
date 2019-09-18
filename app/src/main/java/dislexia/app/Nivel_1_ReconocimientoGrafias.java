@@ -61,7 +61,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
             letrapvacia1 = (ImageView) findViewById(R.id.letrapvacia1);
             letrapCompleta1 = (ImageView) findViewById(R.id.letrapCompleta1);
             letraDvacia1 = (ImageView) findViewById(R.id.letraDVacia1);
-            letraDCompleta1 = (ImageView) findViewById(R.id.letrapCompleta1);
+            letraDCompleta1 = (ImageView) findViewById(R.id.letraDCompleta1);
             letraQCompleta1 = (ImageView) findViewById(R.id.letraQCompleta1);
             letraQVacia1 = (ImageView) findViewById(R.id.letraQVacia1);
             letraQCompleta2 = (ImageView) findViewById(R.id.letraQCompleta2);
@@ -142,10 +142,14 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                   case DragEvent.ACTION_DROP:
 
                       if (view.getId() == R.id.letrap && v.getId() == R.id.letraPView1) {
-
+                            if(letrapCompleta1.getVisibility() == View.VISIBLE ){
+                                Toast.makeText(this,"Ya se ha ingresado la letra P",Toast.LENGTH_LONG).show();
+                                return true;
+                            }
                           letrapCompleta1.setVisibility(View.VISIBLE); //Muestra la imagen completa
                           letrapvacia1.setVisibility(View.INVISIBLE);  // Oculta la imagen vacia
                           cantidadCompletada++;
+
                           Log.e("", "" + cantidadCompletada);
 
 
@@ -160,11 +164,18 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               cronometro.stop();
                               resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              startActivity(i);
+                              finish();
                           }
                           return true;
                       }
                       if (view.getId() == R.id.letrap && v.getId() == R.id.letraPView2) {
 
+                          if(letraPCompleta2.getVisibility() == View.VISIBLE ){
+                              Toast.makeText(this,"Ya se ha ingresado la letra P",Toast.LENGTH_LONG).show();
+                              return true;
+                          }
                           letraPCompleta2.setVisibility(View.VISIBLE);
                           letraPVacia2.setVisibility(View.INVISIBLE);
                           cantidadCompletada++;
@@ -180,6 +191,9 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               cronometro.stop();
                               resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              startActivity(i);
+                              finish();
                           }
                           return true;
                       }
@@ -187,6 +201,12 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
 
                       if (view.getId() == R.id.letraD && v.getId() == R.id.letraDView) {
+                          Log.e("","entro a la d"+ letraDCompleta1.getVisibility());
+                          if(letraDCompleta1.getVisibility() == View.VISIBLE){
+                              Toast.makeText(this,"Ya se ha ingresado la letra D",Toast.LENGTH_LONG).show();
+                              return true;
+
+                          }
 
                           letraDCompleta1.setVisibility(View.VISIBLE);
                           letraDvacia1.setVisibility(View.INVISIBLE);
@@ -203,6 +223,9 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               cronometro.stop();
                               resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              startActivity(i);
+                              finish();
                           }
                           return true;
                           }
@@ -210,6 +233,10 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
                       if (view.getId() == R.id.letrab && v.getId() == R.id.letraBView) {
 
+                          if(letrabCompleta1.getVisibility() == View.VISIBLE ){
+                              Toast.makeText(this,"Ya se ha ingresado la letra B",Toast.LENGTH_LONG).show();
+                              return true;
+                          }
                           letrabCompleta1.setVisibility(View.VISIBLE);
                           letrabVacia1.setVisibility(View.INVISIBLE);
                           cantidadCompletada++;
@@ -225,12 +252,19 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               cronometro.stop();
                               resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              startActivity(i);
+                              finish();
                           }
                           return true;
                           }
 
 
                       if (view.getId() == R.id.letraQ && v.getId() == R.id.letraQView1) {
+                          if(letraQCompleta1.getVisibility() == View.VISIBLE ){
+                              Toast.makeText(this,"Ya se ha ingresado la letra Q",Toast.LENGTH_LONG).show();
+                              return true;
+                          }
 
                           letraQCompleta1.setVisibility(View.VISIBLE);
                           letraQVacia1.setVisibility(View.INVISIBLE);
@@ -247,11 +281,17 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               cronometro.stop();
                               resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
-
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              startActivity(i);
+                              finish();
                           }
                           return true;
                       }
                       if (view.getId() == R.id.letraQ && v.getId() == R.id.letraQView2) {
+                          if(letraQCompleta2.getVisibility() == View.VISIBLE ){
+                              Toast.makeText(this,"Ya se ha ingresado la letra Q",Toast.LENGTH_LONG).show();
+                              return true;
+                          }
 
                           letraQVacia2.setVisibility(View.INVISIBLE);
                           letraQCompleta2.setVisibility(View.VISIBLE);
@@ -268,7 +308,9 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               cronometro.stop();
                               resultado.registrarResultado(nombreActividad,"1",cantidadFallas,tiempo,idPersona,fecha,databaseReference);
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
-
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              startActivity(i);
+                              finish();
                           }
                           return true;
                       } else {
@@ -306,7 +348,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
           }
 
-          Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"aaaa",Toast.LENGTH_SHORT).show();
+
 
 
     return true;

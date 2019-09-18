@@ -2,9 +2,12 @@ package dislexia.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +19,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import dislexia.app.Modelo.Persona;
@@ -26,6 +31,7 @@ public class ActividadEspecialista extends AppCompatActivity {
     EditText nombreNinio, apellidoNinio;
     ListView listaNinio;
     Button butonBuscar;
+    ArrayList<Persona> personas= new ArrayList<Persona>();
 
     private ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
     ArrayAdapter<Persona> personaArrayAdapter;
@@ -45,6 +51,7 @@ public class ActividadEspecialista extends AppCompatActivity {
 
 
         butonBuscar.setOnClickListener(clickListener);
+        listaNinio.setOnItemClickListener(itemSelect);
         inicializarFirebase();
 
     }
@@ -53,6 +60,7 @@ public class ActividadEspecialista extends AppCompatActivity {
     View.OnClickListener clickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
+            listaNinio.setAdapter(null);
 
             String nombreBuscado = nombreNinio.getText().toString();
             String apellidoBuscado = apellidoNinio.getText().toString();
@@ -71,6 +79,34 @@ public class ActividadEspecialista extends AppCompatActivity {
 
         }};
 
+    AdapterView.OnItemClickListener itemSelect = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+           Persona personaSeleccionada = (Persona) adapterView.getItemAtPosition(i);
+
+          /* Persona p = new Persona();
+           p.setIdPersona(personaSeleccionada.getIdPersona());
+           p.setApellido(personaSeleccionada.getApellido());
+           p.setEspecialidad(personaSeleccionada.getEspecialidad());
+           p.setEspecialista_nino(personaSeleccionada.isEspecialista_nino());
+           p.setMatricula(personaSeleccionada.getMatricula());
+           p.setSexo(personaSeleccionada.isSexo());
+           p.setDni(personaSeleccionada.getDni());
+           p.setNombre(personaSeleccionada.getNombre());
+           p.setEdad(personaSeleccionada.getEdad());
+             personas.add(p);
+                */
+           Intent intent = new Intent(ActividadEspecialista.this,ActividadEspecialista_Grafico.class);
+
+
+
+
+           intent.putExtra("nombreSeleccionado", personaSeleccionada.getNombre());
+            intent.putExtra("apellidoSeleccionado", personaSeleccionada.getApellido());
+            intent.putExtra("idPersona",personaSeleccionada.getIdPersona());
+           startActivity(intent);
+        }
+    };
         private void inicializarFirebase() {
             FirebaseApp.initializeApp(this);
             firebaseDatabase = FirebaseDatabase.getInstance();

@@ -23,8 +23,13 @@
     <string name="B">b</string>
     <string name="buscadorEspecialistaNombre">Ingrese nombre de nino </string>
     <string name="buscadorEspecialistaApellido">Ingrese Apellido de nino </string>
-    <string name= "buscar">Buscar</string>
+    <string name="buscar">Buscar</string>
     <string name="resultado">Resultado</string>
     <string name="iniciar">Iniciar</string>
     <string name="arrastre">Arrastre la letra a la figura que corresponde</string>
+    <string name="buscarNino">Buscar Nino</string>
+    <string name="actividad">Actividad</string>
+    <string name="nivel">Nivel</string>
+    <string name="graficofallas">Grafico de fallas</string>
+    <string name="graficotiempo">Grafico de Tiempo</string>
 </resources>

@@ -3,7 +3,6 @@ package dislexia.app;
 import androidx.appcompat.app.AppCompatActivity;
 import dislexia.app.Modelo.*;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -40,7 +39,7 @@ public class Registrar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.registrar);
 
-        nombreTxt = (EditText) findViewById(R.id.nombreTxt);
+        nombreTxt = (EditText) findViewById(R.id.nombreTxtGrafico);
         apellidoTxt = (EditText) findViewById(R.id.apellidoTxt);
         dniTxt = (EditText) findViewById(R.id.dniTxt);
         edadTxt= (EditText) findViewById(R.id.edadTxt);
