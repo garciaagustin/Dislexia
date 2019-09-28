@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Nivel1_IdPalabrasyPseudopalabras">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/torta"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="-4dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="4dp">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView2"
+            android:layout_width="223dp"
+            android:layout_height="272dp"
+
+            android:src="@drawable/torta" />
+
+        <Button
+            android:id="@+id/correcto1"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:text="@string/torta"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="347dp"
+            tools:layout_editor_absoluteY="44dp" />
+
+        <Button
+            android:id="@+id/incorrecta1"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:text="@string/torota"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="347dp"
+            tools:layout_editor_absoluteY="151dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/puerta"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_alignTop="@id/torta">
+
+        <Button
+            android:id="@+id/incorrecto2"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginEnd="36dp"
+            android:text="@string/pucata"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="44dp" />
+
+        <Button
+            android:id="@+id/correcto2"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:text="@string/puerta"
+            android:textSize="24sp"
+            tools:layout_editor_absoluteX="340dp"
+            tools:layout_editor_absoluteY="151dp" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView3"
+            android:layout_width="263dp"
+            android:layout_height="242dp"
+            android:src="@drawable/puerta"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/nivel1idpalabras"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+
+
+</RelativeLayout>

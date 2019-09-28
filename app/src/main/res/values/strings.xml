@@ -32,4 +32,12 @@
     <string name="nivel">Nivel</string>
     <string name="graficofallas">Grafico de fallas</string>
     <string name="graficotiempo">Grafico de Tiempo</string>
+    <string name="title_activity_nivel1__id_palabrasy_pseudopalabras">
+        Nivel1_IdPalabrasyPseudopalabras
+    </string>
+    <string name="nivel1idpalabras">Seleccione la opcion correcta</string>
+    <string name="torta">TORTA</string>
+    <string name="torota">TOROTA</string>
+    <string name="puerta">PUERTA</string>
+    <string name="pucata">PUCATA</string>
 </resources>
