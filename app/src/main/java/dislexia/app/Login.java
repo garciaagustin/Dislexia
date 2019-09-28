@@ -36,9 +36,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import dislexia.app.Modelo.Actividad;
 import dislexia.app.Modelo.Persona;
 import dislexia.app.Modelo.Usuario;
 
@@ -58,6 +61,7 @@ public class Login extends AppCompatActivity {
 
     LinkedList<Boolean> listaEspecialista = new LinkedList<Boolean>();
     LinkedList<String> resultado = new LinkedList<>();
+    ArrayList<Actividad> actividad = new ArrayList<>();
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
@@ -71,6 +75,8 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
+        actividad = (ArrayList<Actividad>) getIntent().getSerializableExtra("actividad");
+        Log.e("","size " + actividad.size());
         video = (VideoView) findViewById(R.id.videoLogin);
 
         Uri uri = Uri.parse("android.resource://" + getPackageName()+ "/" + R.raw.video);
@@ -162,6 +168,7 @@ public class Login extends AppCompatActivity {
                                                                 //Iniciar actividad Especialista
                                                                 Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                                                                 Intent i = new Intent(Login.this,ActividadEspecialista.class);
+                                                                i.putExtra("actividad",actividad);
                                                                 startActivity(i);
 
 
@@ -169,6 +176,8 @@ public class Login extends AppCompatActivity {
                                                                 Toast.makeText(Login.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                                                                 Intent i = new Intent(Login.this,ActividadesPantalla.class);
                                                                 i.putExtra("idPersona",idPersonaRecuperada);
+
+                                                                i.putExtra("actividad",actividad);
                                                                 startActivity(i);
 
 

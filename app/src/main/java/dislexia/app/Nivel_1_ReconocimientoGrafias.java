@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.TimeZone;
@@ -55,12 +56,14 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
     FirebaseUser user;
     String idPersonaConectada;
     Usuario u;
+    ArrayList<Nivel> listaNiveles;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_nivel_1__reconocimiento_grafias);
 
              nombreActividad = getIntent().getStringExtra("nombreActividad");
+              listaNiveles = (ArrayList<Nivel>) getIntent().getSerializableExtra("niveles");
 
 
             // Enlazamos con xml
@@ -192,7 +195,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
 
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
-                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,Niveles.class);
+                              i.putExtra("niveles",listaNiveles);
                               startActivity(i);
                               finish();
                           }
@@ -234,7 +238,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               }
 
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
-                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,Niveles.class);
+                              i.putExtra("niveles",listaNiveles);
                               startActivity(i);
                               finish();
                           }
@@ -280,7 +285,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               }
 
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
-                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,Niveles.class);
+                              i.putExtra("niveles",listaNiveles);
                               startActivity(i);
                               finish();
                           }
@@ -323,7 +329,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               }
 
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
-                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,Niveles.class);
+                              i.putExtra("niveles",listaNiveles);
                               startActivity(i);
                               finish();
                           }
@@ -366,7 +373,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               }
 
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
-                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,Niveles.class);
+                              i.putExtra("niveles",listaNiveles);
                               startActivity(i);
                               finish();
                           }
@@ -407,7 +415,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               }
 
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
-                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,ActividadesPantalla.class);
+                              Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,Niveles.class);
+                              i.putExtra("niveles",listaNiveles);
                               startActivity(i);
                               finish();
                           }

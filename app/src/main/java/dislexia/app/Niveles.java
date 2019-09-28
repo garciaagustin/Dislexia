@@ -27,7 +27,7 @@ public class Niveles extends AppCompatActivity {
         LinearLayout.LayoutParams lp =new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT );
         final String nombreActividad = getIntent().getStringExtra("nombreActividad");
 
-        final ArrayList<Nivel> listaNiveles = (ArrayList<Nivel>) getIntent().getSerializableExtra("ListaNiveles");
+        final ArrayList<Nivel> listaNiveles = (ArrayList<Nivel>) getIntent().getSerializableExtra("niveles");
 
         for(int i=0;i<listaNiveles.size();i++){
 
@@ -47,6 +47,7 @@ public class Niveles extends AppCompatActivity {
                     Intent intent = new Intent(Niveles.this, ventanaNivel);
 
                     intent.putExtra("nombreActividad",nombreActividad);
+                    intent.putExtra("niveles",listaNiveles);
                     view1.getContext().startActivity(intent);
                 }
             });
