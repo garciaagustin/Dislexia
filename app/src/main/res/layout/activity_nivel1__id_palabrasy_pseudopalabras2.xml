@@ -6,6 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".Nivel1_IdPalabrasyPseudopalabras">
 
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/puerta"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_alignTop="@id/torta"
+        >
+
+        <Button
+            android:id="@+id/incorrecto2"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/pucata"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/correcto2"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/puerta"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incorrecto2" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView3"
+            android:layout_width="288dp"
+            android:layout_height="261dp"
+            android:src="@drawable/puerta"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/torta"
         android:layout_width="match_parent"
@@ -14,67 +56,190 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="-4dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="74dp"
         android:layout_marginEnd="4dp">
 
         <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gifImageView2"
-            android:layout_width="223dp"
-            android:layout_height="272dp"
-
-            android:src="@drawable/torta" />
+            android:layout_width="272dp"
+            android:layout_height="252dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/torta"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/correcto1"
             android:layout_width="305dp"
             android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
             android:text="@string/torta"
             android:textSize="24sp"
-            tools:layout_editor_absoluteX="347dp"
-            tools:layout_editor_absoluteY="44dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/incorrecta1"
             android:layout_width="305dp"
             android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
             android:text="@string/torota"
             android:textSize="24sp"
-            tools:layout_editor_absoluteX="347dp"
-            tools:layout_editor_absoluteY="151dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/correcto1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pelota"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_marginTop="74dp"
+        app:layout_constraintBottom_toBottomOf="@+id/torta"
+        app:layout_constraintTop_toTopOf="@+id/torta">
+
+        <Button
+            android:id="@+id/incorrecto3"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/pemota"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/correcto3" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="283dp"
+            android:layout_height="268dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/pelota"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/correcto3"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/pelota"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/manzana"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_marginTop="74dp">
+
+        <Button
+            android:id="@+id/correcto4"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/manzana"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incorrecto4" />
+
+        <Button
+            android:id="@+id/incorrecto4"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/mansala"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="278dp"
+            android:layout_height="265dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/manzana"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="7dp" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/puerta"
+        android:id="@+id/corazon"
         android:layout_width="match_parent"
         android:layout_height="274dp"
-        android:layout_alignTop="@id/torta">
+        android:layout_marginTop="74dp">
 
         <Button
-            android:id="@+id/incorrecto2"
+            android:id="@+id/correcto5"
             android:layout_width="305dp"
             android:layout_height="71dp"
-            android:layout_marginEnd="36dp"
-            android:text="@string/pucata"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/corazon"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:layout_editor_absoluteY="44dp" />
+            app:layout_constraintTop_toBottomOf="@+id/incorrecto5" />
 
         <Button
-            android:id="@+id/correcto2"
+            android:id="@+id/incorrecto5"
             android:layout_width="305dp"
             android:layout_height="71dp"
-            android:text="@string/puerta"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/catalon"
             android:textSize="24sp"
-            tools:layout_editor_absoluteX="340dp"
-            tools:layout_editor_absoluteY="151dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gifImageView3"
-            android:layout_width="263dp"
-            android:layout_height="242dp"
-            android:src="@drawable/puerta"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="16dp" />
+            android:layout_width="279dp"
+            android:layout_height="253dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/corazon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/television"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_marginTop="74dp">
+
+        <Button
+            android:id="@+id/incorrecto6"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/tecnotisor"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/correcto6" />
+
+        <Button
+            android:id="@+id/correcto6"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/television"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="276dp"
+            android:layout_height="253dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/tv"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -85,11 +250,20 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="20dp"
         android:text="@string/nivel1idpalabras"
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
+    <Button
+        android:id="@+id/iniciarButon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="174dp"
+        android:text="@string/iniciar" />
 
 
 </RelativeLayout>
