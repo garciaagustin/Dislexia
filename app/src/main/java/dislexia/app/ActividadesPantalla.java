@@ -42,6 +42,7 @@ public class ActividadesPantalla extends AppCompatActivity {
                 nivelesActividad.add(actividad.get(i).getNiveles().get(j));
 
             }
+            final String nombreActividad = actividad.get(i).getNombreActividad();
             Button button = new Button(this);
             button.setLayoutParams(lp);
             button.setText(actividad.get(i).getNombreActividad());
@@ -54,7 +55,7 @@ public class ActividadesPantalla extends AppCompatActivity {
                 public void onClick(View view1) {
                     Intent intent = new Intent(ActividadesPantalla.this,Niveles.class);
                         intent.putExtra("niveles",nivelesActividad);
-
+                        intent.putExtra("nombreActividad",nombreActividad);
                     view1.getContext().startActivity(intent);
                 }
             });

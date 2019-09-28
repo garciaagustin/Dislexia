@@ -40,4 +40,12 @@
     <string name="torota">TOROTA</string>
     <string name="puerta">PUERTA</string>
     <string name="pucata">PUCATA</string>
+    <string name="pelota">PELOTA</string>
+    <string name="pemota">PEMOTA</string>
+    <string name="manzana">MANZANA</string>
+    <string name="mansala">MANSALA</string>
+    <string name="corazon">CORAZON</string>
+    <string name="catalon">CATALON</string>
+    <string name="television">TELEVISION</string>
+    <string name="tecnotisor">TECNOTISOR</string>
 </resources>
