@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.1"
     defaultConfig {
         applicationId "dislexia.app"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -36,6 +36,8 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    def lottieVersion = "3.0.7"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
 }
 apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
 

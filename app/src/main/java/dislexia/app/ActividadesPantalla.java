@@ -3,6 +3,7 @@ package dislexia.app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 
@@ -15,6 +16,8 @@ import dislexia.app.Modelo.Actividad;
 import dislexia.app.Modelo.Nivel;
 
 public class ActividadesPantalla extends AppCompatActivity {
+
+    private MediaPlayer sp;
     LinkedList<Nivel> listaNiveles = new LinkedList<Nivel>();
 
 
@@ -35,7 +38,9 @@ public class ActividadesPantalla extends AppCompatActivity {
         actividadRg.agregarNivel(nive11);
         actividadRg.agregarNivel(nivel2);
 
-
+        sp = MediaPlayer.create(this, R.raw.goats);
+        sp.start();
+        sp.setLooping(true);
 
 
     }
