@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,8 @@ import dislexia.app.Modelo.Actividad;
 import dislexia.app.Modelo.Nivel;
 
 public class ActividadesPantalla extends AppCompatActivity {
+
+    private MediaPlayer sp;
     LinkedList<Nivel> listaNiveles = new LinkedList<Nivel>();
     ArrayList<Actividad> actividad = new ArrayList<>();
 
@@ -29,7 +32,9 @@ public class ActividadesPantalla extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades_pantalla);
         actividad = (ArrayList<Actividad>) getIntent().getSerializableExtra("actividad");
-
+        sp = MediaPlayer.create(this, R.raw.goats);
+        sp.start();
+        sp.setLooping(true);
 
         LinearLayout botonera = (LinearLayout) findViewById(R.id.layoutbotones);
         LinearLayout.LayoutParams lp =new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT );
@@ -61,6 +66,8 @@ public class ActividadesPantalla extends AppCompatActivity {
             });
 
         }
+
+
 
 
 
