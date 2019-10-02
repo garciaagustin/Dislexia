@@ -52,6 +52,7 @@ public class Login extends AppCompatActivity {
     private Button registrarBoton;
     private FirebaseAuth mAuth;
     private VideoView video;
+    //private MediaPlayer mp;
 
 
     FirebaseDatabase firebaseDatabase;
@@ -96,7 +97,9 @@ public class Login extends AppCompatActivity {
         ingresarBoton = (Button) findViewById(R.id.buttonIngresar);
         registrarBoton = (Button) findViewById(R.id.botonRegistarLogin);
 
-
+        //mp = MediaPlayer.create(this, R.raw.sound_long);
+        //mp.start();
+        //mp.setLooping(true);
 
         inicializarFirebase();
 
@@ -147,6 +150,8 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                //mp.pause();
+                                //mp.release();
 
                                 Usuario u = new Usuario();
                                 //Obtiene idPersona guarda en resultado
@@ -239,15 +244,6 @@ public class Login extends AppCompatActivity {
         startActivity(intent);
 
     }
-
-
-
-
-
-
-
-
-
 
 
 

@@ -46,6 +46,8 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="0dp" />
 
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -88,6 +90,8 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/correcto1" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -128,6 +132,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -167,6 +172,8 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="7dp" />
 
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -204,7 +211,10 @@
             android:src="@drawable/corazon"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/television"
         android:layout_width="match_parent"
@@ -240,6 +250,8 @@
             android:src="@drawable/tv"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="0dp" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

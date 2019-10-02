@@ -6,6 +6,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.text.Layout;
@@ -43,6 +45,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
     private TextView letrap,letrab,letrad,letraq;
     private LinearLayout letraPView1,letraPView2,letraqView,letraBView,letraDView,letraQView2;
     private ImageView letrapvacia1,letrapCompleta1,letraDvacia1,letraDCompleta1,letraQVacia1,letraQCompleta1,letraQVacia2,letraQCompleta2,letrabVacia1,letrabCompleta1,letraPVacia2,letraPCompleta2;
+    //private MediaPlayer mp_great, mp_bad;
 
     int cantidadFallas=0;
     int cantidadCompletada=0;
@@ -94,6 +97,10 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
             letraQCompleta2.setVisibility(View.INVISIBLE);
             letraPCompleta2.setVisibility(View.INVISIBLE);
             letrabCompleta1.setVisibility(View.INVISIBLE);
+
+
+            //mp_great = MediaPlayer.create(this, R.raw.wonderful);
+            //mp_bad = MediaPlayer.create(this, R.raw.bad);
 
 
 
@@ -167,7 +174,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           cantidadCompletada++;
 
                           Log.e("", "" + cantidadCompletada);
-
+                          //mp_great.start();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if (cantidadCompletada == 6) {
@@ -212,6 +219,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           letraPVacia2.setVisibility(View.INVISIBLE);
                           cantidadCompletada++;
                           Log.e("", "" + cantidadCompletada);
+                          //mp_great.start();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if (cantidadCompletada ==6) {
@@ -260,6 +268,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           letraDvacia1.setVisibility(View.INVISIBLE);
                           cantidadCompletada++;
                           Log.e("",""+cantidadCompletada);
+                          //mp_great.start();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if(cantidadCompletada ==6){
@@ -304,6 +313,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           letrabVacia1.setVisibility(View.INVISIBLE);
                           cantidadCompletada++;
                           Log.e("",""+cantidadCompletada);
+                          //mp_great.start();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if(cantidadCompletada ==6){
@@ -348,6 +358,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           letraQVacia1.setVisibility(View.INVISIBLE);
                           cantidadCompletada++;
                           Log.e("",""+cantidadCompletada);
+                          //mp_great.start();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if(cantidadCompletada == 6){
@@ -390,6 +401,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           letraQCompleta2.setVisibility(View.VISIBLE);
                           cantidadCompletada++;
                           Log.e("",""+cantidadCompletada);
+                          //mp_great.start();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if(cantidadCompletada ==6){
@@ -413,7 +425,6 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                               } else {
                                   // No user is signed in
                               }
-
                               Toast.makeText(Nivel_1_ReconocimientoGrafias.this,"Felicitaciones Nivel Completado",Toast.LENGTH_SHORT).show();
                               Intent i = new Intent(Nivel_1_ReconocimientoGrafias.this,Niveles.class);
                               i.putExtra("niveles",listaNiveles);
@@ -423,6 +434,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           return true;
                       } else {
                           cantidadFallas++;
+                          //mp_bad.start();
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Incorrecto", Toast.LENGTH_SHORT).show();
                           Log.e("",""+cantidadCompletada);
                           return true;

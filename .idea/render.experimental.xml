@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="RenderSettings">
+<<<<<<< HEAD
     <option name="showDecorations" value="true" />
     <option name="useLiveRendering" value="true" />
+=======
+    <option name="useLiveRendering" value="false" />
+>>>>>>> master
   </component>
 </project>
