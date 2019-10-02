@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import dislexia.app.Modelo.Actividad;
 import dislexia.app.Modelo.Persona;
 
 public class ActividadEspecialista extends AppCompatActivity {
@@ -34,6 +35,7 @@ public class ActividadEspecialista extends AppCompatActivity {
     ArrayList<Persona> personas= new ArrayList<Persona>();
 
     private ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
+    private ArrayList<Actividad> actividad;
     ArrayAdapter<Persona> personaArrayAdapter;
 
     FirebaseDatabase firebaseDatabase;
@@ -43,6 +45,8 @@ public class ActividadEspecialista extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_especialista);
+
+        actividad = (ArrayList<Actividad>) getIntent().getSerializableExtra("actividad");
 
         nombreNinio = (EditText) findViewById(R.id.nombreNinotxt);
         apellidoNinio = (EditText) findViewById(R.id.apellidoniniotxt);
@@ -104,6 +108,7 @@ public class ActividadEspecialista extends AppCompatActivity {
            intent.putExtra("nombreSeleccionado", personaSeleccionada.getNombre());
             intent.putExtra("apellidoSeleccionado", personaSeleccionada.getApellido());
             intent.putExtra("idPersona",personaSeleccionada.getIdPersona());
+            intent.putExtra("actividad",actividad);
            startActivity(intent);
         }
     };

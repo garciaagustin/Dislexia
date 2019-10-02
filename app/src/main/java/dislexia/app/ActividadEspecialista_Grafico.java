@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import dislexia.app.Modelo.Actividad;
 import dislexia.app.Modelo.Persona;
 import dislexia.app.Modelo.Resultado;
 
@@ -28,6 +29,7 @@ public class ActividadEspecialista_Grafico extends AppCompatActivity {
     private Spinner actividadNombreSpinner,nivelesSpinner;
     private Button buttonGraficoFallas, buttonGraficoTiempo;
     private String actividadSeleccionada,nivelSeleccionado,idPersona;
+    private ArrayList<Actividad> actividad;
 
 
     FirebaseDatabase firebaseDatabase;
@@ -36,9 +38,11 @@ public class ActividadEspecialista_Grafico extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividad_especialista__grafico);
        idPersona = (String) getIntent().getSerializableExtra("idPersona");
+        actividad = (ArrayList<Actividad>) getIntent().getSerializableExtra("actividad");
        String nombre = (String) getIntent().getSerializableExtra("nombreSeleccionado");
        String apellido = (String) getIntent().getSerializableExtra("apellidoSeleccionado");
 
@@ -55,12 +59,31 @@ public class ActividadEspecialista_Grafico extends AppCompatActivity {
 
 
         ArrayList<String> arrayActividad = new ArrayList<>();
-        arrayActividad.add("Reconocimiento de Grafia");
 
-        ArrayList<String> arrayNiveles = new ArrayList<>();
-        arrayNiveles.add("1");
+        for(int i=0;i<actividad.size();i++){
+            arrayActividad.add(actividad.get(i).getNombreActividad());
+        }
+
+
+
 
         ArrayAdapter<String> arrayAdapterActividad = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arrayActividad);
+
+        actividadNombreSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                int actividadnumero =  adapterView.getCount();
+
+                Log.e("",""+actividadnumero);
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
         ArrayAdapter<String> arrayAdapterNivel = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arrayNiveles);
 
         actividadNombreSpinner.setAdapter(arrayAdapterActividad);
