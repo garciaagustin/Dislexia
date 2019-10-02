@@ -45,16 +45,17 @@
                 android:text="@string/registrar"
                 android:textColor="@drawable/txt_boton_redondeado" />
 
+
             <Button
                 android:id="@+id/buttonIngresar"
-                android:layout_width="149dp"
-                android:layout_height="36dp"
+                android:layout_width="153dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/pass"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="275dp"
-                android:layout_marginTop="-74dp"
-                android:layout_marginEnd="136dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="554dp"
                 android:background="@drawable/fondo_boton_redondeado"
                 android:ellipsize="none"
                 android:onClick="ingresar"
@@ -64,8 +65,6 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@drawable/txt_boton_redondeado"
                 android:textSize="20sp" />
-
-
 
             <EditText
                 android:id="@+id/emailTxt"

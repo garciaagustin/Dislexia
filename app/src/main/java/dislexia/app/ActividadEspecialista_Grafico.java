@@ -16,6 +16,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -72,8 +73,9 @@ public class ActividadEspecialista_Grafico extends AppCompatActivity {
         actividadNombreSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                int actividadnumero =  adapterView.getCount();
-
+                int actividadnumero =  adapterView.getSelectedItemPosition();
+                ArrayList<String> arrayNiveles = new ArrayList<>();
+                Array
                 Log.e("",""+actividadnumero);
 
             }

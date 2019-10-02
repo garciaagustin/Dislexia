@@ -46,14 +46,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="0dp" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/gifCorrecto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/correcto"
-            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -98,14 +91,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/correcto1" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/gifCorrecto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/correcto"
-            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -147,14 +132,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/gifCorrecto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/correcto"
-            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -194,14 +172,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="7dp" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/gifCorrecto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/correcto"
-            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -240,14 +211,7 @@
             android:src="@drawable/corazon"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/gifCorrecto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/correcto"
-            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -287,14 +251,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="0dp" />
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/gifCorrecto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/correcto"
-            />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
