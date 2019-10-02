@@ -3,16 +3,19 @@ package dislexia.app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -45,6 +48,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
     int cantidadFallas=0;
     ArrayList<Nivel> listaNiveles;
     private MediaPlayer mp_great, mp_bad;
+    LottieAnimationView animacionCorrecta,animacionIncorrecta;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,17 +64,21 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
         correcto1 = findViewById(R.id.correcto1);
         incorrecto1 = findViewById(R.id.incorrecta1);
 
+
         puerta= (ConstraintLayout) findViewById(R.id.puerta);
         correcto2 = findViewById(R.id.correcto2);
         incorrecto2 = findViewById(R.id.incorrecto2);
+
 
         pelota = (ConstraintLayout) findViewById(R.id.pelota);
         correcto3 = findViewById(R.id.correcto3);
         incorrecto3 = findViewById(R.id.incorrecto3);
 
+
         manzana = (ConstraintLayout) findViewById(R.id.manzana);
         correcto4 = findViewById(R.id.correcto4);
         incorrecto4 = findViewById(R.id.incorrecto4);
+
 
         corazon = (ConstraintLayout) findViewById(R.id.corazon);
         correcto5 = findViewById(R.id.correcto5);
@@ -104,8 +113,11 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
         corazon.setVisibility(View.INVISIBLE);
         television.setVisibility(View.INVISIBLE);
 
+
         mp_great = MediaPlayer.create(this, R.raw.wonderful);
         mp_bad = MediaPlayer.create(this, R.raw.bad);
+
+        animacionCorrecta = (LottieAnimationView) findViewById(R.id.gifCorrecto);
 
 
         inicializarFirebase();
@@ -136,6 +148,7 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
             if (iniciarBoton.isPressed()) {
                 correcto1.setEnabled(true);
                 incorrecto1.setEnabled(true);
+
                 cronometro = new Chronometer(Nivel1_IdPalabrasyPseudopalabras.this);
                 cronometro.setBase(SystemClock.elapsedRealtime());
                 cronometro.setFormat(null);
@@ -145,6 +158,7 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                 Log.e("", "" + cantidadCorrecta);
                 if (correcto1.isPressed()) {
                     mp_great.start();
+
                     Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                     cantidadCorrecta++;
                     torta.setVisibility(View.INVISIBLE);
