@@ -3,6 +3,7 @@ package dislexia.app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.animation.Animator;
 import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -23,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -41,6 +43,7 @@ import dislexia.app.Modelo.Usuario;
 
 public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements View.OnTouchListener, View.OnDragListener {
     private ConstraintLayout constraintLayout;
+    private LottieAnimationView correcto,incorrecto;
     private Button botonIniciar;
     private TextView letrap,letrab,letrad,letraq;
     private LinearLayout letraPView1,letraPView2,letraqView,letraBView,letraDView,letraQView2;
@@ -65,11 +68,15 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_nivel_1__reconocimiento_grafias);
 
+            //Se recibe nombre de actividad
              nombreActividad = getIntent().getStringExtra("nombreActividad");
               listaNiveles = (ArrayList<Nivel>) getIntent().getSerializableExtra("niveles");
 
 
             // Enlazamos con xml
+            correcto = findViewById(R.id.animacionCorrecto);    //Enlaza con animacion correcta
+            incorrecto = findViewById(R.id.animacionIncorrecto);
+
             botonIniciar = (Button)findViewById(R.id.botonIniciar);
             letrapvacia1 = (ImageView) findViewById(R.id.letrapvacia1);
             letrapCompleta1 = (ImageView) findViewById(R.id.letrapCompleta1);
@@ -102,6 +109,13 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
             //mp_great = MediaPlayer.create(this, R.raw.wonderful);
             //mp_bad = MediaPlayer.create(this, R.raw.bad);
 
+            //Se establecen las animaciones
+            correcto.setAnimation("correcto.json");
+            incorrecto.setAnimation("incorrecto.json");
+
+            // Se agrega listener a la animacion para quitarla cuando termina
+            correcto.addAnimatorListener(animacion);
+            incorrecto.addAnimatorListener(animacion);
 
 
 
@@ -122,6 +136,35 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
 
     }
+
+    Animator.AnimatorListener animacion = new Animator.AnimatorListener() {
+        @Override
+        public void onAnimationStart(Animator animator) {
+            if(correcto.isAnimating()) {
+                correcto.setVisibility(View.VISIBLE);
+            }
+            if(incorrecto.isAnimating()) {
+                incorrecto.setVisibility(View.VISIBLE);
+            }
+        }
+
+        @Override
+        public void onAnimationEnd(Animator animator) {
+
+            correcto.setVisibility(View.INVISIBLE);
+            incorrecto.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        public void onAnimationCancel(Animator animator) {
+
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animator) {
+
+        }
+    };
     View.OnClickListener escucharClick = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -143,6 +186,7 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
             findViewById(R.id.letraQView2).setOnDragListener(Nivel_1_ReconocimientoGrafias.this);
             findViewById(R.id.letraBView).setOnDragListener(Nivel_1_ReconocimientoGrafias.this);
 
+            //Cronometro
             cronometro = new Chronometer(Nivel_1_ReconocimientoGrafias.this);
             cronometro.setBase(SystemClock.elapsedRealtime());
             cronometro.setFormat(null);
@@ -162,10 +206,12 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
           while(cantidadCompletada <=6) {                             //Chequea que se hayan puesto todas las letras
               switch (e.getAction()) {
-                  case DragEvent.ACTION_DROP:
+                  case DragEvent.ACTION_DROP: //Si se solto una letra
 
-                      if (view.getId() == R.id.letrap && v.getId() == R.id.letraPView1) {
-                            if(letrapCompleta1.getVisibility() == View.VISIBLE ){
+                      if (view.getId() == R.id.letrap && v.getId() == R.id.letraPView1) { //Chequea si la letra corresponde a la figura
+                            if(letrapCompleta1.getVisibility() == View.VISIBLE ){ // Chequea si ya se ha ingresado
+                                incorrecto.setVisibility(View.VISIBLE);
+                                incorrecto.playAnimation();
                                 Toast.makeText(this,"Ya se ha ingresado la letra P",Toast.LENGTH_LONG).show();
                                 return true;
                             }
@@ -175,6 +221,10 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
                           Log.e("", "" + cantidadCompletada);
                           //mp_great.start();
+                          correcto.setVisibility(View.VISIBLE);
+                          correcto.playAnimation();
+
+
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if (cantidadCompletada == 6) {
@@ -212,6 +262,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                       if (view.getId() == R.id.letrap && v.getId() == R.id.letraPView2) {
 
                           if(letraPCompleta2.getVisibility() == View.VISIBLE ){
+                              incorrecto.setVisibility(View.VISIBLE);
+                              incorrecto.playAnimation();
                               Toast.makeText(this,"Ya se ha ingresado la letra P",Toast.LENGTH_LONG).show();
                               return true;
                           }
@@ -220,6 +272,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           cantidadCompletada++;
                           Log.e("", "" + cantidadCompletada);
                           //mp_great.start();
+                          correcto.setVisibility(View.VISIBLE);
+                          correcto.playAnimation();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if (cantidadCompletada ==6) {
@@ -259,6 +313,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                       if (view.getId() == R.id.letraD && v.getId() == R.id.letraDView) {
                           Log.e("","entro a la d"+ letraDCompleta1.getVisibility());
                           if(letraDCompleta1.getVisibility() == View.VISIBLE){
+                              incorrecto.setVisibility(View.VISIBLE);
+                              incorrecto.playAnimation();
                               Toast.makeText(this,"Ya se ha ingresado la letra D",Toast.LENGTH_LONG).show();
                               return true;
 
@@ -269,6 +325,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           cantidadCompletada++;
                           Log.e("",""+cantidadCompletada);
                           //mp_great.start();
+                          correcto.setVisibility(View.VISIBLE);
+                          correcto.playAnimation();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if(cantidadCompletada ==6){
@@ -306,6 +364,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                       if (view.getId() == R.id.letrab && v.getId() == R.id.letraBView) {
 
                           if(letrabCompleta1.getVisibility() == View.VISIBLE ){
+                              incorrecto.setVisibility(View.VISIBLE);
+                              incorrecto.playAnimation();
                               Toast.makeText(this,"Ya se ha ingresado la letra B",Toast.LENGTH_LONG).show();
                               return true;
                           }
@@ -314,6 +374,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           cantidadCompletada++;
                           Log.e("",""+cantidadCompletada);
                           //mp_great.start();
+                          correcto.setVisibility(View.VISIBLE);
+                          correcto.playAnimation();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if(cantidadCompletada ==6){
@@ -350,6 +412,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
 
                       if (view.getId() == R.id.letraQ && v.getId() == R.id.letraQView1) {
                           if(letraQCompleta1.getVisibility() == View.VISIBLE ){
+                              incorrecto.setVisibility(View.VISIBLE);
+                              incorrecto.playAnimation();
                               Toast.makeText(this,"Ya se ha ingresado la letra Q",Toast.LENGTH_LONG).show();
                               return true;
                           }
@@ -359,6 +423,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           cantidadCompletada++;
                           Log.e("",""+cantidadCompletada);
                           //mp_great.start();
+                          correcto.setVisibility(View.VISIBLE);
+                          correcto.playAnimation();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if(cantidadCompletada == 6){
@@ -393,6 +459,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                       }
                       if (view.getId() == R.id.letraQ && v.getId() == R.id.letraQView2) {
                           if(letraQCompleta2.getVisibility() == View.VISIBLE ){
+                              incorrecto.setVisibility(View.VISIBLE);
+                              incorrecto.playAnimation();
                               Toast.makeText(this,"Ya se ha ingresado la letra Q",Toast.LENGTH_LONG).show();
                               return true;
                           }
@@ -402,6 +470,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           cantidadCompletada++;
                           Log.e("",""+cantidadCompletada);
                           //mp_great.start();
+                          correcto.setVisibility(View.VISIBLE);
+                          correcto.playAnimation();
 
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Correcto", Toast.LENGTH_SHORT).show();
                           if(cantidadCompletada ==6){
@@ -433,6 +503,8 @@ public class Nivel_1_ReconocimientoGrafias extends AppCompatActivity implements 
                           }
                           return true;
                       } else {
+                          incorrecto.setVisibility(View.VISIBLE);
+                          incorrecto.playAnimation();
                           cantidadFallas++;
                           //mp_bad.start();
                           Toast.makeText(Nivel_1_ReconocimientoGrafias.this, "Incorrecto", Toast.LENGTH_SHORT).show();

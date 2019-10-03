@@ -70,7 +70,7 @@ public class ActividadEspecialista_Grafico extends AppCompatActivity {
 
 
 
-        ArrayAdapter<String> arrayAdapterActividad = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arrayActividad);
+        ArrayAdapter<String> arrayAdapterActividad = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, arrayActividad);
 
         actividadNombreSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -84,7 +84,7 @@ public class ActividadEspecialista_Grafico extends AppCompatActivity {
 
                     arrayNiveles.add(nivel.get(j).getNumero());
 
-                    ArrayAdapter<String> arrayAdapterNivel = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item, arrayNiveles);
+                    ArrayAdapter<String> arrayAdapterNivel = new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item, arrayNiveles);
                     nivelesSpinner.setAdapter(arrayAdapterNivel);
                 }
                 Log.e("",""+actividadnumero);
