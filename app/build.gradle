@@ -37,8 +37,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.18'
-    def lottieVersion = "3.0.7"
-    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    implementation 'com.airbnb.android:lottie:3.0.7'
 }
 apply plugin: 'com.google.gms.google-services'  // Google Play services Gradle plugin
 

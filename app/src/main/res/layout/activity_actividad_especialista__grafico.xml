@@ -33,8 +33,8 @@
 
     <Spinner
         android:id="@+id/actividadNombreSpinner"
-        android:layout_width="265dp"
-        android:layout_height="44dp"
+        android:layout_width="350dp"
+        android:layout_height="46dp"
         android:layout_marginStart="248dp"
         android:layout_marginTop="116dp"
         android:background="@android:color/black"
@@ -47,7 +47,9 @@
         android:layout_height="44dp"
         android:layout_marginStart="248dp"
         android:layout_marginTop="192dp"
-        android:background="@android:color/black"
+        android:background="#00B8B5B5"
+        android:dropDownWidth="match_parent"
+        android:spinnerMode="dropdown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
