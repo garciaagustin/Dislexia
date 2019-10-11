@@ -21,6 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -52,6 +54,15 @@ public class GraficoTiempo extends AppCompatActivity {
 
         inicializarFirebase();
 
+
+        Collections.sort(listaResultado, new Comparator<Resultado>() {
+            @Override
+            public int compare(Resultado resultado, Resultado t1) {
+
+
+                return resultado.getFecha().compareTo(t1.getFecha());
+            }
+        });
 
         final ArrayList<String> fecha = new ArrayList<>();
         List<BarEntry> list = new ArrayList<>();
