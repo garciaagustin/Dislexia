@@ -52,7 +52,7 @@ public class ActividadesPantalla extends AppCompatActivity {
             button.setLayoutParams(lp);
             button.setText(actividad.get(i).getNombreActividad());
             button.setBackground(this.getResources().getDrawable(R.drawable.fondo_boton_redondeado)); // Cambiar fondo boton x archivo creado
-           // button.setTextColor(this.getResources().getColorStateList(R.drawable.txt_boton_redondeado)); //Cambia el color de texto del boton
+            button.setTextColor(this.getResources().getColorStateList(R.drawable.txt_boton_redondeado)); //Cambia el color de texto del boton
             botonera.addView(button);
             //Agrego listener al boton para redireccionarlo a la actividad correspondiente
             button.setOnClickListener(new View.OnClickListener(){

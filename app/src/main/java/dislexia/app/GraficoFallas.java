@@ -24,6 +24,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -54,8 +56,14 @@ public class GraficoFallas extends AppCompatActivity {
         ArrayList<String> fecha = new ArrayList<>();
 
 
+        Collections.sort(listaResultado, new Comparator<Resultado>() {
+            @Override
+            public int compare(Resultado resultado, Resultado t1) {
 
 
+                return resultado.getFecha().compareTo(t1.getFecha());
+            }
+        });
 
 
                 //Valor entrada
