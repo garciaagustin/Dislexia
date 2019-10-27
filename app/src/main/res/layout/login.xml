@@ -27,24 +27,24 @@
             android:layout_marginTop="90dp"
             android:orientation="vertical">
 
+
             <Button
                 android:id="@+id/botonRegistarLogin"
-                android:layout_width="150dp"
-                android:layout_height="45dp"
+                android:layout_width="120dp"
+                android:layout_height="100dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
 
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="432dp"
-                android:layout_marginTop="120dp"
-                android:layout_marginEnd="142dp"
-                android:layout_marginBottom="55dp"
+                android:layout_marginStart="194dp"
+                android:layout_marginTop="126dp"
+                android:layout_marginEnd="83dp"
+                android:layout_marginBottom="14dp"
                 android:background="@drawable/fondo_boton_redondeado"
                 android:onClick="registrarLogin"
                 android:text="@string/registrar"
                 android:textColor="@drawable/txt_boton_redondeado" />
-
 
             <Button
                 android:id="@+id/buttonIngresar"
@@ -53,9 +53,9 @@
                 android:layout_below="@+id/pass"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="554dp"
+                android:layout_marginStart="267dp"
+                android:layout_marginTop="-166dp"
+                android:layout_marginEnd="144dp"
                 android:background="@drawable/fondo_boton_redondeado"
                 android:ellipsize="none"
                 android:onClick="ingresar"

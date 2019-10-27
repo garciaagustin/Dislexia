@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,12 +23,16 @@ import dislexia.app.Modelo.Nivel;
 public class ActividadesPantalla extends AppCompatActivity {
     LinkedList<Nivel> listaNiveles = new LinkedList<Nivel>();
     ArrayList<Actividad> actividad = new ArrayList<>();
-
+    MediaPlayer sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actividades_pantalla);
+        sp = MediaPlayer.create(this, R.raw.goats);
+        sp.start();
+        sp.setLooping(true);
+
         actividad = (ArrayList<Actividad>) getIntent().getSerializableExtra("actividad");
 
 

@@ -9,48 +9,30 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="554dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/viewEspecialista"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <Button
+                    android:id="@+id/botonRegistrar"
+                    android:layout_width="98dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginTop="32dp"
 
-                    android:layout_marginStart="36dp"
-                    android:layout_marginTop="8dp"
+                    android:background="@drawable/fondo_boton_redondeado"
+                    android:onClick="registrarBoton"
+                    android:text="@string/registrar"
+                    android:textColor="@drawable/txt_boton_redondeado"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-                    <EditText
-                        android:id="@+id/especialidadTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ems="10"
-                        android:hint="@string/especialidad"
-                        android:inputType="textPersonName"
-                        tools:layout_editor_absoluteX="0dp"
-                        tools:layout_editor_absoluteY="0dp" />
-
-                    <EditText
-                        android:id="@+id/matriculaTxt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:ems="10"
-                        android:hint="@string/matricula"
-                        android:inputType="textPersonName"
-                        app:layout_constraintTop_toBottomOf="@+id/especialidadTxt"
-                        tools:layout_editor_absoluteX="0dp" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <CheckBox
                     android:id="@+id/especialistaCb"
@@ -59,32 +41,6 @@
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="276dp"
                     app:layout_constraintStart_toEndOf="@+id/textView3"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/edadTxt"
-                    android:layout_width="100dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="92dp"
-                    android:ems="10"
-                    android:hint="@string/edad"
-                    android:inputType="number"
-                    app:layout_constraintStart_toEndOf="@+id/apellidoTxt"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
-                    android:id="@+id/botonRegistrar"
-                    android:layout_width="98dp"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="504dp"
-                    android:layout_marginTop="340dp"
-
-                    android:background="@drawable/fondo_boton_redondeado"
-                    android:onClick="registrarBoton"
-                    android:text="@string/registrar"
-                    android:textColor="@drawable/txt_boton_redondeado"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
@@ -136,18 +92,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/dniTxt" />
 
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="316dp"
-                    android:layout_marginTop="32dp"
-
-                    android:text="@string/registrar"
-                    android:textSize="24sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <EditText
                     android:id="@+id/pass"
                     android:layout_width="wrap_content"
@@ -158,6 +102,41 @@
                     android:hint="@string/password"
                     android:inputType="textPassword"
                     app:layout_constraintStart_toEndOf="@+id/emailTxt"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="150dp"
+                    app:layout_constraintStart_toEndOf="@+id/sexoTxt"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/masculinorb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/masculino" />
+
+                    <RadioButton
+                        android:id="@+id/femeninorb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/femenino" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="176dp"
+                    android:layout_marginTop="32dp"
+
+                    android:text="@string/registrar"
+                    android:textSize="24sp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -183,28 +162,48 @@
                     app:layout_constraintStart_toEndOf="@+id/dniTxt"
                     app:layout_constraintTop_toBottomOf="@+id/apellidoTxt" />
 
-                <RadioGroup
-                    android:id="@+id/radioGroup2"
-                    android:layout_width="0dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/viewEspecialista"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="150dp"
-                    app:layout_constraintStart_toEndOf="@+id/sexoTxt"
-                    app:layout_constraintTop_toTopOf="parent">
 
-                    <RadioButton
-                        android:id="@+id/masculinorb"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+                    <EditText
+                        android:id="@+id/especialidadTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/masculino" />
+                        android:ems="10"
+                        android:hint="@string/especialidad"
+                        android:inputType="textPersonName"
+                        tools:layout_editor_absoluteX="0dp"
+                        tools:layout_editor_absoluteY="0dp" />
 
-                    <RadioButton
-                        android:id="@+id/femeninorb"
+                    <EditText
+                        android:id="@+id/matriculaTxt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/femenino" />
+                        android:layout_marginTop="8dp"
+                        android:ems="10"
+                        android:hint="@string/matricula"
+                        android:inputType="textPersonName"
+                        app:layout_constraintTop_toBottomOf="@+id/especialidadTxt"
+                        tools:layout_editor_absoluteX="0dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                </RadioGroup>
+                <EditText
+                    android:id="@+id/edadTxt"
+                    android:layout_width="100dp"
+                    android:layout_height="49dp"
+                    android:layout_marginTop="60dp"
+                    android:ems="10"
+                    android:hint="@string/edad"
+                    android:inputType="number"
+                    app:layout_constraintTop_toTopOf="@+id/pass"
+                    tools:layout_editor_absoluteX="266dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
