@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Nivel1_FamiliaPalabras">
+
+    <Button
+        android:id="@+id/buttonFP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="322dp"
+        android:layout_marginTop="200dp"
+        android:text="@string/iniciar" />
+
+    <RelativeLayout
+        android:id="@+id/calificado"
+        android:layout_width="522dp"
+        android:layout_height="282dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="100dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/correcto43fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="126dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="108dp"
+            android:text="@string/calificacion" />
+
+        <Button
+            android:id="@+id/correcto44fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="218dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/calificado" />
+
+        <Button
+            android:id="@+id/correcto41fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginBottom="204dp"
+            android:text="@string/descalificar" />
+
+        <Button
+            android:id="@+id/incorrecto43fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="187dp"
+            android:layout_marginEnd="187dp"
+            android:layout_marginBottom="47dp"
+            android:text="@string/caballero" />
+
+        <Button
+            android:id="@+id/correcto42fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="111dp"
+            android:layout_marginEnd="196dp"
+            android:layout_marginBottom="123dp"
+            android:text="@string/descalificado" />
+
+        <Button
+            android:id="@+id/incorrecto42fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="190dp"
+            android:layout_marginEnd="328dp"
+            android:layout_marginBottom="44dp"
+            android:text="@string/desclasificado" />
+
+        <Button
+            android:id="@+id/incorrecto41fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="73dp"
+            android:layout_marginEnd="369dp"
+            android:layout_marginBottom="161dp"
+            android:text="@string/calado" />
+
+        <TextView
+            android:id="@+id/textView19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/calificado"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/util"
+        android:layout_width="522dp"
+        android:layout_height="282dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="100dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/correcto31fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="61dp"
+            android:layout_marginEnd="67dp"
+            android:layout_marginBottom="173dp"
+            android:text="@string/inutil" />
+
+        <Button
+            android:id="@+id/incorrecto32fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="166dp"
+            android:layout_marginEnd="133dp"
+            android:layout_marginBottom="68dp"
+            android:text="@string/universo" />
+
+        <Button
+            android:id="@+id/correcto32fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="107dp"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="127dp"
+            android:text="@string/utilizable" />
+
+        <Button
+            android:id="@+id/incorrecto33fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="185dp"
+            android:layout_marginEnd="288dp"
+            android:layout_marginBottom="49dp"
+            android:text="@string/unico" />
+
+        <Button
+            android:id="@+id/correcto33fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="83dp"
+            android:layout_marginEnd="349dp"
+            android:layout_marginBottom="151dp"
+            android:text="@string/utilizar" />
+
+        <Button
+            android:id="@+id/correcto34fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="196dp"
+            android:layout_marginEnd="420dp"
+            android:layout_marginBottom="38dp"
+            android:text="@string/utilmente" />
+
+        <Button
+            android:id="@+id/incorrecto31fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="22dp"
+            android:layout_marginEnd="244dp"
+            android:layout_marginBottom="212dp"
+            android:text="@string/usado" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/util"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="21dp"
+        android:text="@string/familiapalabras"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+        android:id="@+id/domador"
+        android:layout_width="522dp"
+        android:layout_height="282dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="100dp"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/incorrecto22fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="177dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="57dp"
+            android:text="@string/indoloro" />
+
+        <Button
+            android:id="@+id/correcto22fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="74dp"
+            android:layout_marginEnd="92dp"
+            android:layout_marginBottom="160dp"
+            android:text="@string/domable" />
+
+        <Button
+            android:id="@+id/correcto23fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="123dp"
+            android:layout_marginEnd="236dp"
+            android:layout_marginBottom="111dp"
+            android:text="@string/domar" />
+
+        <Button
+            android:id="@+id/correcto21fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="105dp"
+            android:layout_marginEnd="396dp"
+            android:layout_marginBottom="129dp"
+            android:text="@string/indomable" />
+
+        <Button
+            android:id="@+id/correcto24fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="218dp"
+            android:layout_marginEnd="407dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/domado" />
+
+        <Button
+            android:id="@+id/incorrecto21fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="45dp"
+            android:layout_marginEnd="216dp"
+            android:layout_marginBottom="189dp"
+            android:text="@string/dorado" />
+
+        <Button
+            android:id="@+id/incorrecto23fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="203dp"
+            android:layout_marginEnd="268dp"
+            android:layout_marginBottom="31dp"
+            android:text="@string/domino" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/domador"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/abrigar"
+        android:layout_width="522dp"
+        android:layout_height="282dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="100dp"
+        android:visibility="visible">
+
+        <Button
+            android:id="@+id/incorrecto2fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="208dp"
+            android:layout_marginEnd="85dp"
+            android:layout_marginBottom="26dp"
+            android:text="@string/desastre" />
+
+        <Button
+            android:id="@+id/correcto2fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="148dp"
+            android:layout_marginBottom="203dp"
+            android:text="@string/abrigo" />
+
+        <Button
+            android:id="@+id/incorrecto1fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="130dp"
+            android:layout_marginEnd="398dp"
+            android:layout_marginBottom="104dp"
+            android:text="@string/abrochar" />
+
+        <Button
+            android:id="@+id/correcto4fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="210dp"
+            android:layout_marginEnd="261dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/desabrigado" />
+
+        <Button
+            android:id="@+id/correcto1fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="49dp"
+            android:layout_marginEnd="313dp"
+            android:layout_marginBottom="185dp"
+            android:text="@string/abriguito" />
+
+        <Button
+            android:id="@+id/incorrecto3fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="110dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginBottom="124dp"
+            android:text="@string/abrir" />
+
+        <Button
+            android:id="@+id/correcto3fp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="133dp"
+            android:layout_marginEnd="205dp"
+            android:layout_marginBottom="101dp"
+            android:text="@string/abrigado" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Abrigar"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -9,46 +9,7 @@
 
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/puerta"
-        android:layout_width="match_parent"
-        android:layout_height="274dp"
-        android:layout_alignTop="@id/torta"
-        >
 
-        <Button
-            android:id="@+id/incorrecto2"
-            android:layout_width="305dp"
-            android:layout_height="71dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/pucata"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/correcto2"
-            android:layout_width="305dp"
-            android:layout_height="71dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/puerta"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/incorrecto2" />
-
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gifImageView3"
-            android:layout_width="288dp"
-            android:layout_height="261dp"
-            android:src="@drawable/puerta"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/torta"
@@ -70,7 +31,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/correcto1"
+            android:id="@+id/correcto1fp"
             android:layout_width="305dp"
             android:layout_height="71dp"
             android:layout_marginTop="24dp"
@@ -89,48 +50,7 @@
             android:text="@string/torota"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/correcto1" />
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/pelota"
-        android:layout_width="match_parent"
-        android:layout_height="274dp"
-        android:layout_marginTop="74dp"
-        app:layout_constraintBottom_toBottomOf="@+id/torta"
-        app:layout_constraintTop_toTopOf="@+id/torta">
-
-        <Button
-            android:id="@+id/incorrecto3"
-            android:layout_width="305dp"
-            android:layout_height="71dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/pemota"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/correcto3" />
-
-        <pl.droidsonroids.gif.GifImageView
-            android:layout_width="283dp"
-            android:layout_height="268dp"
-            android:layout_marginTop="8dp"
-            android:src="@drawable/pelota"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/correcto3"
-            android:layout_width="305dp"
-            android:layout_height="71dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="32dp"
-            android:text="@string/pelota"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/correcto1fp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -143,7 +63,7 @@
         android:layout_marginTop="74dp">
 
         <Button
-            android:id="@+id/correcto4"
+            android:id="@+id/correcto4fp"
             android:layout_width="305dp"
             android:layout_height="71dp"
             android:layout_marginTop="24dp"
@@ -151,10 +71,10 @@
             android:text="@string/manzana"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/incorrecto4" />
+            app:layout_constraintTop_toBottomOf="@+id/incorrecto3fp" />
 
         <Button
-            android:id="@+id/incorrecto4"
+            android:id="@+id/incorrecto3fp"
             android:layout_width="305dp"
             android:layout_height="71dp"
             android:layout_marginTop="24dp"
@@ -215,6 +135,86 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/pelota"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_marginTop="74dp"
+        app:layout_constraintBottom_toBottomOf="@+id/torta"
+        app:layout_constraintTop_toTopOf="@+id/torta">
+
+        <Button
+            android:id="@+id/incorrecto3fp"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/pemota"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/correcto3fp" />
+
+        <Button
+            android:id="@+id/correcto3fp"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/pelota"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="283dp"
+            android:layout_height="268dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/pelota"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/puerta"
+        android:layout_width="match_parent"
+        android:layout_height="274dp"
+        android:layout_alignTop="@id/torta"
+        >
+
+        <Button
+            android:id="@+id/incorrecto2fp"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/pucata"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/correcto2fp"
+            android:layout_width="305dp"
+            android:layout_height="71dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/puerta"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/incorrecto2fp" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gifImageView3"
+            android:layout_width="288dp"
+            android:layout_height="261dp"
+            android:src="@drawable/puerta"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/television"
         android:layout_width="match_parent"

@@ -3,14 +3,11 @@ package dislexia.app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import android.content.ComponentName;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.Toast;
@@ -61,23 +58,23 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
         iniciarBoton = (Button) findViewById(R.id.iniciarButon);
 
         torta = (ConstraintLayout) findViewById(R.id.torta);
-        correcto1 = findViewById(R.id.correcto1);
+        correcto1 = findViewById(R.id.correcto1fp);
         incorrecto1 = findViewById(R.id.incorrecta1);
 
 
         puerta= (ConstraintLayout) findViewById(R.id.puerta);
-        correcto2 = findViewById(R.id.correcto2);
-        incorrecto2 = findViewById(R.id.incorrecto2);
+        correcto2 = findViewById(R.id.correcto2fp);
+        incorrecto2 = findViewById(R.id.incorrecto2fp);
 
 
         pelota = (ConstraintLayout) findViewById(R.id.pelota);
-        correcto3 = findViewById(R.id.correcto3);
-        incorrecto3 = findViewById(R.id.incorrecto3);
+        correcto3 = findViewById(R.id.correcto3fp);
+        incorrecto3 = findViewById(R.id.incorrecto3fp);
 
 
         manzana = (ConstraintLayout) findViewById(R.id.manzana);
-        correcto4 = findViewById(R.id.correcto4);
-        incorrecto4 = findViewById(R.id.incorrecto4);
+        correcto4 = findViewById(R.id.correcto4fp);
+        incorrecto4 = findViewById(R.id.incorrecto3fp);
 
 
         corazon = (ConstraintLayout) findViewById(R.id.corazon);
@@ -107,8 +104,9 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
         correcto6.setOnClickListener(listener);
         incorrecto6.setOnClickListener(listener);
 
+        torta.setVisibility(View.INVISIBLE);
         puerta.setVisibility(View.INVISIBLE);
-        pelota.setVisibility(View.INVISIBLE);
+        pelota.setVisibility(View.VISIBLE);
         manzana.setVisibility(View.INVISIBLE);
         corazon.setVisibility(View.INVISIBLE);
         television.setVisibility(View.INVISIBLE);
@@ -125,8 +123,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
         u = new Usuario();
 
         user = FirebaseAuth.getInstance().getCurrentUser();
-        correcto1.setEnabled(false);
-        incorrecto1.setEnabled(false);
+        correcto3.setEnabled(false);
+        incorrecto3.setEnabled(false);
     }
 
     private void inicializarFirebase() {
@@ -146,8 +144,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
             final Resultado resultado = new Resultado();
 
             if (iniciarBoton.isPressed()) {
-                correcto1.setEnabled(true);
-                incorrecto1.setEnabled(true);
+                correcto3.setEnabled(true);
+                incorrecto3.setEnabled(true);
 
                 cronometro = new Chronometer(Nivel1_IdPalabrasyPseudopalabras.this);
                 cronometro.setBase(SystemClock.elapsedRealtime());
@@ -156,95 +154,13 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
 
             }
                 Log.e("", "" + cantidadCorrecta);
-                if (correcto1.isPressed()) {
-                    //mp_great.start();
-
-                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
-                    cantidadCorrecta++;
-                    torta.setVisibility(View.INVISIBLE);
-                    puerta.setVisibility(View.VISIBLE);
-                    if (cantidadCorrecta == 6) {
-                        Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
-                        Calendar c = Calendar.getInstance();
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        final String fecha = sdf.format(c.getTime());
-                        final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
-                        cronometro.stop();
-                        if (user != null) {
-                            String userEmail = user.getEmail();
-
-
-                            u.readData(new Usuario.FirebaseCallBackidPersona() {
-                                @Override
-                                public void onCallback(LinkedList<String> personaRecuperada) {
-                                    idPersonaConectada = personaRecuperada.getFirst();
-                                    resultado.registrarResultado(nombreActividad, "1", cantidadFallas, tiempo, idPersonaConectada, fecha, databaseReference);
-                                }
-                            }, userEmail, databaseReference, personaRecuperada);
-                        } else {
-                            // No user is signed in
-                        }
-                        Intent i = new Intent(Nivel1_IdPalabrasyPseudopalabras.this,Niveles.class);
-                        i.putExtra("niveles",listaNiveles);
-                        startActivity(i);
-                        finish();
-                    }
-
-                } else if (incorrecto1.isPressed()) {
-                    //mp_bad.start();
-                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
-                    cantidadFallas++;
-                }
-
-                //Puerta
-
-                if (correcto2.isPressed()) {
-                    //mp_great.start();
-                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
-                    cantidadCorrecta++;
-                    puerta.setVisibility(View.INVISIBLE);
-                    pelota.setVisibility(View.VISIBLE);
-                    if (cantidadCorrecta == 6) {
-                        Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
-                        Calendar c = Calendar.getInstance();
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        final String fecha = sdf.format(c.getTime());
-                        final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
-                        cronometro.stop();
-                        if (user != null) {
-                            String userEmail = user.getEmail();
-
-
-                            u.readData(new Usuario.FirebaseCallBackidPersona() {
-                                @Override
-                                public void onCallback(LinkedList<String> personaRecuperada) {
-                                    idPersonaConectada = personaRecuperada.getFirst();
-                                    resultado.registrarResultado(nombreActividad, "1", cantidadFallas, tiempo, idPersonaConectada, fecha, databaseReference);
-                                }
-                            }, userEmail, databaseReference, personaRecuperada);
-                        } else {
-                            // No user is signed in
-                        }
-                        Intent i = new Intent(Nivel1_IdPalabrasyPseudopalabras.this,Niveles.class);
-                        i.putExtra("niveles",listaNiveles);
-                        startActivity(i);
-                        finish();
-                    }
-
-                } else if (incorrecto2.isPressed()) {
-                    //mp_bad.start();
-                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
-                    cantidadFallas++;
-                }
-
-                // Pelota
-
                 if (correcto3.isPressed()) {
                     //mp_great.start();
+
                     Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                     cantidadCorrecta++;
                     pelota.setVisibility(View.INVISIBLE);
-                    manzana.setVisibility(View.VISIBLE);
+                    puerta.setVisibility(View.VISIBLE);
                     if (cantidadCorrecta == 6) {
                         Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
                         Calendar c = Calendar.getInstance();
@@ -278,6 +194,173 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                     cantidadFallas++;
                 }
 
+                //Puerta pomelo
+
+                if (correcto2.isPressed()) {
+                    //mp_great.start();
+                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
+                    cantidadCorrecta++;
+                    puerta.setVisibility(View.INVISIBLE);
+                    television.setVisibility(View.VISIBLE);
+                    if (cantidadCorrecta == 6) {
+                        Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
+                        Calendar c = Calendar.getInstance();
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        final String fecha = sdf.format(c.getTime());
+                        final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                        cronometro.stop();
+                        if (user != null) {
+                            String userEmail = user.getEmail();
+
+
+                            u.readData(new Usuario.FirebaseCallBackidPersona() {
+                                @Override
+                                public void onCallback(LinkedList<String> personaRecuperada) {
+                                    idPersonaConectada = personaRecuperada.getFirst();
+                                    resultado.registrarResultado(nombreActividad, "1", cantidadFallas, tiempo, idPersonaConectada, fecha, databaseReference);
+                                }
+                            }, userEmail, databaseReference, personaRecuperada);
+                        } else {
+                            // No user is signed in
+                        }
+                        Intent i = new Intent(Nivel1_IdPalabrasyPseudopalabras.this,Niveles.class);
+                        i.putExtra("niveles",listaNiveles);
+                        startActivity(i);
+                        finish();
+                    }
+
+                } else if (incorrecto2.isPressed()) {
+                    //mp_bad.start();
+                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
+                    cantidadFallas++;
+                }
+
+                //Televisor conejo
+            if (correcto6.isPressed()) {
+                //mp_great.start();
+                Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
+                cantidadCorrecta++;
+                television.setVisibility(View.INVISIBLE);
+                corazon.setVisibility(View.VISIBLE);
+
+                if (cantidadCorrecta == 6) {
+                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    final String fecha = sdf.format(c.getTime());
+                    final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                    cronometro.stop();
+                    if (user != null) {
+                        String userEmail = user.getEmail();
+
+
+                        u.readData(new Usuario.FirebaseCallBackidPersona() {
+                            @Override
+                            public void onCallback(LinkedList<String> personaRecuperada) {
+                                idPersonaConectada = personaRecuperada.getFirst();
+                                resultado.registrarResultado(nombreActividad, "1", cantidadFallas, tiempo, idPersonaConectada, fecha, databaseReference);
+                            }
+                        }, userEmail, databaseReference, personaRecuperada);
+                    } else {
+                        // No user is signed in
+                    }
+                    Intent i = new Intent(Nivel1_IdPalabrasyPseudopalabras.this,Niveles.class);
+                    i.putExtra("niveles",listaNiveles);
+                    startActivity(i);
+                    finish();
+                }
+
+            } else if (incorrecto6.isPressed()) {
+                //mp_bad.start();
+                Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
+                cantidadFallas++;
+            }
+
+            //Corazon
+
+            if (correcto5.isPressed()) {
+                //mp_great.start();
+                Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
+                cantidadCorrecta++;
+                corazon.setVisibility(View.INVISIBLE);
+                torta.setVisibility(View.VISIBLE);
+
+                if (cantidadCorrecta == 6) {
+                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    final String fecha = sdf.format(c.getTime());
+                    final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                    cronometro.stop();
+                    if (user != null) {
+                        String userEmail = user.getEmail();
+
+
+                        u.readData(new Usuario.FirebaseCallBackidPersona() {
+                            @Override
+                            public void onCallback(LinkedList<String> personaRecuperada) {
+                                idPersonaConectada = personaRecuperada.getFirst();
+                                resultado.registrarResultado(nombreActividad, "1", cantidadFallas, tiempo, idPersonaConectada, fecha, databaseReference);
+                            }
+                        }, userEmail, databaseReference, personaRecuperada);
+                    } else {
+                        // No user is signed in
+                    }
+                    Intent i = new Intent(Nivel1_IdPalabrasyPseudopalabras.this,Niveles.class);
+                    i.putExtra("niveles",listaNiveles);
+                    startActivity(i);
+                    finish();
+                }
+
+            } else if (incorrecto5.isPressed()) {
+                //mp_bad.start();
+                Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
+                cantidadFallas++;
+            }
+
+
+
+            // Torta
+
+                if (correcto1.isPressed()) {
+                    //mp_great.start();
+                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
+                    cantidadCorrecta++;
+                    torta.setVisibility(View.INVISIBLE);
+                    manzana.setVisibility(View.VISIBLE);
+                    if (cantidadCorrecta == 6) {
+                        Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
+                        Calendar c = Calendar.getInstance();
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        final String fecha = sdf.format(c.getTime());
+                        final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
+                        cronometro.stop();
+                        if (user != null) {
+                            String userEmail = user.getEmail();
+
+
+                            u.readData(new Usuario.FirebaseCallBackidPersona() {
+                                @Override
+                                public void onCallback(LinkedList<String> personaRecuperada) {
+                                    idPersonaConectada = personaRecuperada.getFirst();
+                                    resultado.registrarResultado(nombreActividad, "1", cantidadFallas, tiempo, idPersonaConectada, fecha, databaseReference);
+                                }
+                            }, userEmail, databaseReference, personaRecuperada);
+                        } else {
+                            // No user is signed in
+                        }
+                        Intent i = new Intent(Nivel1_IdPalabrasyPseudopalabras.this,Niveles.class);
+                        i.putExtra("niveles",listaNiveles);
+                        startActivity(i);
+                        finish();
+                    }
+
+                } else if (incorrecto1.isPressed()) {
+                    //mp_bad.start();
+                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
+                    cantidadFallas++;
+                }
+
                 //Manzana
 
                 if (correcto4.isPressed()) {
@@ -285,7 +368,7 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                     Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                     cantidadCorrecta++;
                     manzana.setVisibility(View.INVISIBLE);
-                    corazon.setVisibility(View.VISIBLE);
+
                     if (cantidadCorrecta == 6) {
                         Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
                         Calendar c = Calendar.getInstance();
@@ -319,88 +402,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                     cantidadFallas++;
                 }
 
-                //Corazon
-
-                if (correcto5.isPressed()) {
-                    //mp_great.start();
-                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
-                    cantidadCorrecta++;
-                    corazon.setVisibility(View.INVISIBLE);
-                    television.setVisibility(View.VISIBLE);
-
-                    if (cantidadCorrecta == 6) {
-                        Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
-                        Calendar c = Calendar.getInstance();
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        final String fecha = sdf.format(c.getTime());
-                        final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
-                        cronometro.stop();
-                        if (user != null) {
-                            String userEmail = user.getEmail();
 
 
-                            u.readData(new Usuario.FirebaseCallBackidPersona() {
-                                @Override
-                                public void onCallback(LinkedList<String> personaRecuperada) {
-                                    idPersonaConectada = personaRecuperada.getFirst();
-                                    resultado.registrarResultado(nombreActividad, "1", cantidadFallas, tiempo, idPersonaConectada, fecha, databaseReference);
-                                }
-                            }, userEmail, databaseReference, personaRecuperada);
-                        } else {
-                            // No user is signed in
-                        }
-                        Intent i = new Intent(Nivel1_IdPalabrasyPseudopalabras.this,Niveles.class);
-                        i.putExtra("niveles",listaNiveles);
-                        startActivity(i);
-                        finish();
-                    }
-
-                } else if (incorrecto5.isPressed()) {
-                    //mp_bad.start();
-                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
-                    cantidadFallas++;
-                }
-
-                //Television
-
-                if (correcto6.isPressed()) {
-                    //mp_great.start();
-                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
-                    cantidadCorrecta++;
-                    television.setVisibility(View.INVISIBLE);
-
-                    if (cantidadCorrecta == 6) {
-                        Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Nivel Completado", Toast.LENGTH_LONG).show();
-                        Calendar c = Calendar.getInstance();
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                        final String fecha = sdf.format(c.getTime());
-                        final String tiempo = String.valueOf(SystemClock.elapsedRealtime() - cronometro.getBase());
-                        cronometro.stop();
-                        if (user != null) {
-                            String userEmail = user.getEmail();
-
-
-                            u.readData(new Usuario.FirebaseCallBackidPersona() {
-                                @Override
-                                public void onCallback(LinkedList<String> personaRecuperada) {
-                                    idPersonaConectada = personaRecuperada.getFirst();
-                                    resultado.registrarResultado(nombreActividad, "1", cantidadFallas, tiempo, idPersonaConectada, fecha, databaseReference);
-                                }
-                            }, userEmail, databaseReference, personaRecuperada);
-                        } else {
-                            // No user is signed in
-                        }
-                        Intent i = new Intent(Nivel1_IdPalabrasyPseudopalabras.this,Niveles.class);
-                        i.putExtra("niveles",listaNiveles);
-                        startActivity(i);
-                        finish();
-                    }
-
-                } else if (incorrecto6.isPressed()) {
-                    //mp_bad.start();
-                    Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
-                    cantidadFallas++;
-                }
 
 
             }

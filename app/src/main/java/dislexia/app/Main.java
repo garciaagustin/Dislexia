@@ -32,8 +32,15 @@ public class Main extends AppCompatActivity {
         Actividad actividadIdP = new Actividad("Identificacion de Palabras y Pseudopalabras");
         actividadIdP.agregarNivel(nivel21);
 
+        Nivel nivel1Familia = new Nivel("1",Nivel1_FamiliaPalabras.class);
+        Actividad actividadFp= new Actividad("Familia de Palabras");
+        actividadFp.agregarNivel(nivel1Familia);
+
         actividades.add(actividadRg); // Agrega actividad a lista para pasarlo a la prox
         actividades.add(actividadIdP);
+        actividades.add(actividadFp);
+
+
 
         Log.e("",""+actividades.size());
        Intent i = new Intent(this, Login.class);
