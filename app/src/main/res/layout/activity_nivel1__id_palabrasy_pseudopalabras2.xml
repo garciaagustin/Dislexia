@@ -7,6 +7,38 @@
     tools:context=".Nivel1_IdPalabrasyPseudopalabras">
 
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionIncorrecto"
+        android:layout_width="87dp"
+        android:layout_height="76dp"
+        android:layout_alignParentEnd="true"
+
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="276dp"
+        android:layout_marginEnd="321dp"
+        android:layout_marginBottom="94dp"
+        app:lottie_autoPlay="false"
+        app:lottie_fileName="incorrecto.json"
+        app:lottie_loop="false">
+        >
+
+    </com.airbnb.lottie.LottieAnimationView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animacionCorrecto"
+        android:layout_width="85dp"
+        android:layout_height="77dp"
+
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="321dp"
+        android:layout_marginBottom="95dp"
+        app:lottie_autoPlay="false"
+        app:lottie_fileName="correcto.json"
+        app:lottie_loop="false">
+
+    </com.airbnb.lottie.LottieAnimationView>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/torta"
         android:layout_width="match_parent"
@@ -58,7 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="274dp"
         android:layout_marginTop="74dp"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <Button
             android:id="@+id/correcto4"
