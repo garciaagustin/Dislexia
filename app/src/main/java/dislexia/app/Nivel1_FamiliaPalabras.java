@@ -64,13 +64,13 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
         iniciar = findViewById(R.id.buttonFP);
         iniciar.setOnClickListener(listener);
 
-        correcto1fp =findViewById(R.id.correcto1fp);
-        correcto2fp = findViewById(R.id.correcto2fp);
-        correcto3fp = findViewById(R.id.correcto3fp);
-        correcto4fp = findViewById(R.id.correcto4fp);
+        correcto1fp =findViewById(R.id.correcto1);
+        correcto2fp = findViewById(R.id.correcto2);
+        correcto3fp = findViewById(R.id.correcto3);
+        correcto4fp = findViewById(R.id.correcto4);
         incorrecto1fp = findViewById(R.id.incorrecto1fp);
-        incorrecto2fp = findViewById(R.id.incorrecto2fp);
-        incorrecto3fp = findViewById(R.id.incorrecto3fp);
+        incorrecto2fp = findViewById(R.id.incorrecto2);
+        incorrecto3fp = findViewById(R.id.incorrecto3);
 
         correcto21fp = findViewById(R.id.correcto21fp);
         correcto22fp = findViewById(R.id.correcto22fp);

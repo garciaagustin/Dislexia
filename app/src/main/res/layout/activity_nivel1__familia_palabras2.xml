@@ -345,7 +345,7 @@
         android:visibility="visible">
 
         <Button
-            android:id="@+id/incorrecto2fp"
+            android:id="@+id/incorrecto2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -357,7 +357,7 @@
             android:text="@string/desastre" />
 
         <Button
-            android:id="@+id/correcto2fp"
+            android:id="@+id/correcto2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -381,7 +381,7 @@
             android:text="@string/abrochar" />
 
         <Button
-            android:id="@+id/correcto4fp"
+            android:id="@+id/correcto4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -393,7 +393,7 @@
             android:text="@string/desabrigado" />
 
         <Button
-            android:id="@+id/correcto1fp"
+            android:id="@+id/correcto1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -405,7 +405,7 @@
             android:text="@string/abriguito" />
 
         <Button
-            android:id="@+id/incorrecto3fp"
+            android:id="@+id/incorrecto3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -417,7 +417,7 @@
             android:text="@string/abrir" />
 
         <Button
-            android:id="@+id/correcto3fp"
+            android:id="@+id/correcto3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
