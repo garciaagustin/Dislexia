@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.Log;
@@ -47,6 +48,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
     String idPersonaConectada,nombreActividad;
     LinkedList<String> personaRecuperada = new LinkedList<String>();
     ArrayList<Nivel> listaNiveles;
+    private MediaPlayer mp_great, mp_bad;
 
 
     @Override
@@ -133,6 +135,9 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
         domador.setVisibility(View.INVISIBLE);
         abrigar.setVisibility(View.INVISIBLE);
 
+        mp_great = MediaPlayer.create(this, R.raw.wonderful);
+        mp_bad = MediaPlayer.create(this, R.raw.bad);
+
         inicializarFirebase();
 
         u = new Usuario();
@@ -169,6 +174,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
                 Log.e("", "" + cantidadCompletada);
             //primer familia
                 if (correcto1fp.isPressed()) {
+                    mp_great.start();
                     cantidadCompletada++;
                     Log.e("", "cantidad com" + cantidadCompletada);
                     Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -186,6 +192,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
                 }
                 if (correcto2fp.isPressed()) {
+                    mp_great.start();
                     cantidadCompletada++;
                     Log.e("","cantidad com"+cantidadCompletada);
                     Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -202,6 +209,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
                 }
 
                 if (correcto3fp.isPressed()) {
+                    mp_great.start();
                     cantidadCompletada++;
                     Log.e("","cantidad com"+cantidadCompletada);
                     Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -218,6 +226,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
                 }
 
                 if (correcto4fp.isPressed()) {
+                    mp_great.start();
                     cantidadCompletada++;
                     Log.e("","cantidad com"+cantidadCompletada);
                     Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -233,6 +242,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
                 }
                 if (incorrecto1fp.isPressed()) {
+                    mp_bad.start();
                     cantidadFallas++;
                     Log.e("","fallas"+cantidadFallas);
                     Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -240,6 +250,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
                     incorrecto1fp.setEnabled(false);
 
                 }else if (incorrecto2fp.isPressed()) {
+                    mp_bad.start();
                     cantidadFallas++;
                     Log.e("","fallas"+cantidadFallas);
                     Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -248,6 +259,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
 
                 }else if (incorrecto3fp.isPressed()) {
+                    mp_bad.start();
                     cantidadFallas++;
                     Log.e("","fallas"+cantidadFallas);
                     Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -261,6 +273,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
                 // 2 familia
 
             if (correcto21fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("", "cantidad com" + cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -278,6 +291,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
             }
             if (correcto22fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("","cantidad com"+cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -294,6 +308,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
             }
 
             if (correcto23fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("","cantidad com"+cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -310,6 +325,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
             }
 
             if (correcto24fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("","cantidad com"+cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -325,6 +341,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
             }
             if (incorrecto21fp.isPressed()) {
+                mp_bad.start();
                 cantidadFallas++;
                 Log.e("","fallas"+cantidadFallas);
                 Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -332,6 +349,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
                 incorrecto21fp.setEnabled(false);
 
             }else if (incorrecto22fp.isPressed()) {
+                mp_bad.start();
                 cantidadFallas++;
                 Log.e("","fallas"+cantidadFallas);
                 Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -340,6 +358,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
 
             }else if (incorrecto23fp.isPressed()) {
+                mp_bad.start();
                 cantidadFallas++;
                 Log.e("","fallas"+cantidadFallas);
                 Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -351,6 +370,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
             // 3 familia
 
             if (correcto31fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("", "cantidad com" + cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -368,6 +388,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
             }
             if (correcto32fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("","cantidad com"+cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -384,6 +405,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
             }
 
             if (correcto33fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("","cantidad com"+cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -400,6 +422,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
             }
 
             if (correcto34fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("","cantidad com"+cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -415,6 +438,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
             }
             if (incorrecto31fp.isPressed()) {
+                mp_bad.start();
                 cantidadFallas++;
                 Log.e("","fallas"+cantidadFallas);
                 Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -422,6 +446,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
                 incorrecto31fp.setEnabled(false);
 
             }else if (incorrecto32fp.isPressed()) {
+                mp_bad.start();
                 cantidadFallas++;
                 Log.e("","fallas"+cantidadFallas);
                 Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -430,6 +455,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
 
             }else if (incorrecto33fp.isPressed()) {
+                mp_bad.start();
                 cantidadFallas++;
                 Log.e("","fallas"+cantidadFallas);
                 Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -442,6 +468,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
             //4 familia
 
             if (correcto41fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("", "cantidad com" + cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -484,6 +511,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
             }
             if (correcto42fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("","cantidad com"+cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -526,12 +554,13 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
             }
 
             if (correcto43fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("","cantidad com"+cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                 correcto43fp.setBackgroundColor(Color.GREEN);
 
-                correcto33fp.setEnabled(false);
+                correcto43fp.setEnabled(false);
                 if(cantidadCompletada ==4){
                     Toast.makeText(Nivel1_FamiliaPalabras.this, "Felicitaciones Nivel Completado", Toast.LENGTH_LONG).show();
                     cantidadCompletada=0;
@@ -568,6 +597,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
             }
 
             if (correcto44fp.isPressed()) {
+                mp_great.start();
                 cantidadCompletada++;
                 Log.e("","cantidad com"+cantidadCompletada);
                 Toast.makeText(Nivel1_FamiliaPalabras.this, "Correcto", Toast.LENGTH_LONG).show();
@@ -609,6 +639,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
             }
             if (incorrecto41fp.isPressed()) {
+                mp_bad.start();
                 cantidadFallas++;
                 Log.e("","fallas"+cantidadFallas);
                 Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -616,6 +647,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
                 incorrecto41fp.setEnabled(false);
 
             }else if (incorrecto42fp.isPressed()) {
+                mp_bad.start();
                 cantidadFallas++;
                 Log.e("","fallas"+cantidadFallas);
                 Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();
@@ -624,6 +656,7 @@ public class Nivel1_FamiliaPalabras extends AppCompatActivity {
 
 
             }else if (incorrecto43fp.isPressed()) {
+                mp_bad.start();
                 cantidadFallas++;
                 Log.e("","fallas"+cantidadFallas);
                 Toast.makeText(Nivel1_FamiliaPalabras.this,"Incorrecto",Toast.LENGTH_LONG).show();

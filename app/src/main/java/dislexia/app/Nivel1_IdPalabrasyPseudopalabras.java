@@ -3,6 +3,7 @@ package dislexia.app;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.Chronometer;
 import android.widget.Toast;
 
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -46,6 +48,7 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
     int cantidadFallas = 0;
     ArrayList<Nivel> listaNiveles;
     private MediaPlayer mp_great, mp_bad;
+    private LottieAnimationView correcto,incorrecto;
 
 
     @Override
@@ -53,6 +56,9 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nivel1__id_palabrasy_pseudopalabras2);
 
+
+        correcto = findViewById(R.id.animacionCorrecto);
+        incorrecto = findViewById(R.id.animacionIncorrecto);
         nombreActividad = getIntent().getStringExtra("nombreActividad");
         listaNiveles = (ArrayList<Nivel>) getIntent().getSerializableExtra("niveles");
 
@@ -118,7 +124,10 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
 
         //animacionCorrecta = (LottieAnimationView) findViewById(R.id.gifCorrecto);
 
-
+        correcto.addAnimatorListener(animacion);
+        incorrecto.addAnimatorListener(animacion);
+        correcto.setAnimation("correcto.json");
+        incorrecto.setAnimation("incorrecto.json");
         inicializarFirebase();
 
         u = new Usuario();
@@ -135,6 +144,35 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
 
 
     }
+
+    Animator.AnimatorListener animacion = new Animator.AnimatorListener() {
+        @Override
+        public void onAnimationStart(Animator animator) {
+            if(correcto.isAnimating()) {
+                correcto.setVisibility(View.VISIBLE);
+            }
+            if(incorrecto.isAnimating()) {
+                incorrecto.setVisibility(View.VISIBLE);
+            }
+        }
+
+        @Override
+        public void onAnimationEnd(Animator animator) {
+
+            correcto.setVisibility(View.INVISIBLE);
+            incorrecto.setVisibility(View.INVISIBLE);
+        }
+
+        @Override
+        public void onAnimationCancel(Animator animator) {
+
+        }
+
+        @Override
+        public void onAnimationRepeat(Animator animator) {
+
+        }
+    };
 
     View.OnClickListener listener = new View.OnClickListener() {
         @Override
@@ -159,7 +197,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
 
             if (correcto3.isPressed()) {
                 mp_great.start();
-
+                correcto.setVisibility(View.VISIBLE);
+                correcto.playAnimation();
 
                 Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                 cantidadCorrecta++;
@@ -197,7 +236,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                 //mp_bad.start();
 
                 mp_bad.start();
-
+                incorrecto.setVisibility(View.VISIBLE);
+                incorrecto.playAnimation();
                 Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
                 cantidadFallas++;
             }
@@ -206,6 +246,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
 
             if (correcto2.isPressed()) {
                 mp_great.start();
+                correcto.setVisibility(View.VISIBLE);
+                correcto.playAnimation();
                 Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                 cantidadCorrecta++;
                 puerta.setVisibility(View.INVISIBLE);
@@ -239,6 +281,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
 
             } else if (incorrecto2.isPressed()) {
                 mp_bad.start();
+                incorrecto.setVisibility(View.VISIBLE);
+                incorrecto.playAnimation();
                 Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
                 cantidadFallas++;
             }
@@ -246,6 +290,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
 
             //Televisor conejo
             if (correcto6.isPressed()) {
+                correcto.setVisibility(View.VISIBLE);
+                correcto.playAnimation();
                 mp_great.start();
                 Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                 cantidadCorrecta++;
@@ -281,6 +327,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                 }
                 } else if (incorrecto6.isPressed()) {
                     mp_bad.start();
+                incorrecto.setVisibility(View.VISIBLE);
+                incorrecto.playAnimation();
                     Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
                     cantidadFallas++;
                 }
@@ -289,8 +337,11 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                 //Corazon
 
                 if (correcto5.isPressed()) {
+
                     //mp_great.start();
                     mp_great.start();
+                    correcto.setVisibility(View.VISIBLE);
+                    correcto.playAnimation();
                     Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                     cantidadCorrecta++;
                     corazon.setVisibility(View.INVISIBLE);
@@ -324,6 +375,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                     }
                     }else if (incorrecto5.isPressed()) {
                         mp_bad.start();
+                    incorrecto.setVisibility(View.VISIBLE);
+                    incorrecto.playAnimation();
                         Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
                         cantidadFallas++;
                     }
@@ -335,7 +388,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                             //mp_great.start();
 
                                 mp_great.start();
-
+                            correcto.setVisibility(View.VISIBLE);
+                            correcto.playAnimation();
                                 Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                                 cantidadCorrecta++;
                                 torta.setVisibility(View.INVISIBLE);
@@ -372,7 +426,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                                 //mp_bad.start();
 
                                 mp_bad.start();
-
+                            incorrecto.setVisibility(View.VISIBLE);
+                            incorrecto.playAnimation();
                                 Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
                                 cantidadFallas++;
                             }
@@ -384,7 +439,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                                 //mp_great.start();
 
                                 mp_great.start();
-
+                                correcto.setVisibility(View.VISIBLE);
+                                correcto.playAnimation();
                                 Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Correcto", Toast.LENGTH_LONG).show();
                                 cantidadCorrecta++;
                                 manzana.setVisibility(View.INVISIBLE);
@@ -421,7 +477,8 @@ public class Nivel1_IdPalabrasyPseudopalabras extends AppCompatActivity {
                                 //mp_bad.start();
 
                                 mp_bad.start();
-
+                                incorrecto.setVisibility(View.VISIBLE);
+                                incorrecto.playAnimation();
                                 Toast.makeText(Nivel1_IdPalabrasyPseudopalabras.this, "Incorrecto", Toast.LENGTH_LONG).show();
                                 cantidadFallas++;
                             }
